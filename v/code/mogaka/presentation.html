@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!--
+Present minutes for a selected intern and date using the mutall_data library 
+and the following strategy:-
+1. Extend the library page class with a new one called tracker
+2. Override the show_panels method without own version
+3. Call the show_panels method from this page
+
+For this version the intern and date values will be hard-wired
+
+-->
+<html>
+    <head>
+        <title>Presentation</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script type="module">
+            //
+            //Import the tracker class (which is an extension of outlook page)
+            import { presentation } from "./presentation.js";
+            //
+            // Call function that displays data after page load is completed
+            window.onload = async () => {
+                //
+                //Create a tracket object
+                const Presentation = new presentation(39, document.querySelector("body"));
+                //
+                //Make the tracker visible outside this script
+                window.Presentation = Presentation;
+                //
+                //Now execute the show pannels method
+                await Presentation.show_panels();
+            };
+        </script>
+        <link rel="stylesheet" href="./presentation.css" />
+    </head>
+    <body id="body"></body>
+</html>

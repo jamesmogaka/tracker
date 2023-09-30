@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>View Minutes</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="presentations.css" />
+
+    <script type="module">
+      //
+      // Import the view_minutes and create_minute functions from JavaScript files
+      import { presentations } from "./presentations.js";
+      window.onload = async()=>{
+        //
+        const Presentations = new presentations ();
+        //
+        //Exposing the minutes variable to be accessibe in HTML
+        window.Presentations = Presentations;
+        //
+        //Exwcute the standard method for showng panels of a page
+      await Presentations.show_panels();
+    };
+    </script>
+  </head>
+  <body>
+    <div class="container">
+        <!--Adding the header division-->
+        <div id="mid_header">
+            <details id="nav_mobile">
+              <summary>Navigate Minutes</summary>
+            </details>
+        </div>
+        <!--Add the left navigation panel-->
+        <div id="nav"></div>
+        <!--Add the content area-->
+        <div id="content"></div>
+        <!--Add the footer-->
+        <div id="footer"><p>Developed by Sharon and Mogaka</p></div>
+    </div>
+  </body>
+</html>

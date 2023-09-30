@@ -1,0 +1,130 @@
+[{
+        "name": "Andrew Mugambi",
+        "year": 2016,
+        "image": "http://206.189.207.206/tracker/portfolio/2023/image/drew.jpg",
+        "intern": 1,
+        "surname": "mugambi",
+        "workplan": null,
+        "presenter": 0,
+        "university": "African Nazarene University",
+        "presentations": null,
+        "qualification": "Bsc. Business Information Technology"
+    }, {
+        "name": "George Kangara",
+        "year": 2019,
+        "image": "http://206.189.207.206/tracker/portfolio/2023/kangara.html",
+        "intern": 6,
+        "surname": "kangara",
+        "workplan": [{
+                "name": "Shule",
+                "plan": "The plan is to develop a system that will be user-friendly ",
+                "outcome": "The system will help in managing school results and make it easier to retrieve results anytime and anywhere. The school can also load scores that are not in the system. Get better managed code that will be easy to manage, debug and teach",
+                "problem": "Design, add a label for ticking, next to the crestlet row. Customization, different pages should be created from one page the main one, the others can be created by dragging the the factors to the page header or row factor. Have a restore button when a filter is selected and an empty page appers, this takes the user back to the previous populated page. Arranging the code in a object oriented manner that will help us navigate through the code using classes and their methods. Fixing a wrong input by allowing editing of results on the web-page "
+            }, {
+                "name": "School Research",
+                "plan": "See if there are other school problems i can solve using a system to make their work easier ",
+                "outcome": "Help the school easily manage their resources without much effort.",
+                "problem": "Identify Problems that schools are facing which may be finance related, book keeping, communicating to parents etc"
+            }, {
+                "name": "SheetJs",
+                "plan": "Using SheetJS library we can read and display excel data in HTML Table ",
+                "outcome": "Data loaded directly from excel",
+                "problem": "Unable to load excel files directly to the database "
+            }, {
+                "name": "Chama",
+                "plan": "Work on chama system and have funtionalities that will help the user navigate through the application and in future be able to add their contributions",
+                "outcome": "Have a system that is easier to navigate and that is presentable both on phone and big screen",
+                "problem": "Add the crown part, add a column selector, add a start date to every member, reload the data "
+            }, {
+                "name": "Oritech",
+                "plan": "Display oritech data using school library",
+                "outcome": "Well tabulated oritech data with invoices",
+                "problem": "Tabulation of oritech data"
+            }],
+        "presenter": 0,
+        "university": "Meru University",
+        "presentations": [{
+                "date": "2023-05-08",
+                "presentation": 23
+            }, {
+                "date": "2023-05-22",
+                "presentation": 34
+            }, {
+                "date": "2023-05-29",
+                "presentation": 32
+            }, {
+                "date": "2023-06-12",
+                "presentation": 39
+            }, {
+                "date": "2023-07-03",
+                "presentation": 52
+            }],
+        "qualification": "Bsc Computer Technology"
+    }, {
+        "name": "Isaac Waweru",
+        "year": 2019,
+        "image": "http://206.189.207.206/tracker/portfolio/image/weru.jpg",
+        "intern": 8,
+        "surname": "waweru",
+        "workplan": [{
+                "name": "Secure Parking",
+                "plan": "Use spectroscopy technology for detection of plant and soil health",
+                "outcome": null,
+                "problem": "Plant and soil health in agriculture is a big neccessity,many detection of any anomalies are done too late after the damage has been done."
+            }, {
+                "name": "Smart Farming",
+                "plan": "Embracing technology in our Farms.",
+                "outcome": null,
+                "problem": "Real time monitoring of farm conditions i.e Soil moisture ,alkalinity temperature and sending this parameters remotely to any location on a personal mobile."
+            }],
+        "presenter": 0,
+        "university": "Dedan Kimathi University of Technology",
+        "presentations": null,
+        "qualification": "Bsc. Mechatronics Engineering"
+    }, {
+        "name": "Simon Mwangi",
+        "year": 2023,
+        "image": null,
+        "intern": 13,
+        "surname": "karanja",
+        "workplan": [{
+                "name": "KKM Chat System",
+                "plan": "Identify the key features that you want in your chama chat system interface.",
+                "outcome": "Improved communication and collaboration among chama members.",
+                "problem": "Inefficient communication and collaboration among team members.\r\n"
+            }, {
+                "name": "Personal goals",
+                "plan": "plan",
+                "outcome": "As an ethical hacker, my ultimate goal should be to make use of nondestructive hacking techniques, determine whether or not vulnerabilities exist and demonstrate this to the system’s owner, close the flaws and improve the overall security of the system .",
+                "problem": "One of the main challenges of ethical hacking is the need to stay up-to-date with the latest security threats and vulnerabilities. This requires ongoing training and education to keep pace with the rapidly evolving threat landscape\r\n"
+            }],
+        "presenter": 1,
+        "university": "Cooperative University",
+        "presentations": [{
+                "date": "2023-06-26",
+                "presentation": 47
+            }],
+        "qualification": "Diploma in IT"
+    }, {
+        "name": "James Oyondi",
+        "year": 2024,
+        "image": null,
+        "intern": 14,
+        "surname": "mogaka",
+        "workplan": [{
+                "name": "Minutes Content Management",
+                "plan": "To develop a system that solves the shortcomings of the current minute management system which will manage each minute as an item rather than at the file level. This will be solved by creating a database model that will be used to record the currently existing minutes in the markdown file as items.\r\n\r\n",
+                "outcome": "An automated minutes system that will be capable of recording contributions from various users.",
+                "problem": "The minutes for interns are normally recorded in a markdown files whereby the files should follow a specified format. Currently the interns do not follow the specified format leading to minutes presentation(display) problems. The current system lacks a criteria of compiling contributions from various sources into the minutes session of next presentation."
+            }],
+        "presenter": 0,
+        "university": "Dedan Kimathi University of Technology",
+        "presentations": [{
+                "date": "2023-06-19",
+                "presentation": 43
+            }, {
+                "date": "2023-07-10",
+                "presentation": 58
+            }],
+        "qualification": "Bsc. Computer Science"
+    }]

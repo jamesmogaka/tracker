@@ -1,0 +1,32 @@
+<form>
+    <fieldset>
+        <legend>Enter your contributions below:</legend>
+        <div>
+            <label data-required="true" data-iotype="text" id="summary">
+                Summary: <input type="text"  />
+                <span class="error"></span>
+            </label>
+        </div>
+        <div>
+            <label data-iotype="textarea" id="detail">
+                Details:
+                <br />
+                <textarea
+
+                    rows="10"
+                    cols="100"
+                    placeholder="Enter your contributions!!"
+                    >
+                </textarea>
+                <span class="error"></span>
+            </label>
+            <span class="error"></span>
+        </div>
+        <span class="error"></span>
+        <div>
+            <button id="submit">Save</button>
+            <button id="cancel">Cancel</button>
+        </div>
+        <div id="report"></div>
+    </fieldset>
+</form>

@@ -1,0 +1,35 @@
+header {
+    display: flex;
+    justify-content: center;
+}
+header > h1 {
+    text-decoration: underline;
+}
+
+h2 {
+    display: inline-block;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+details > summary {
+    font-size: 18px;
+}
+
+details > details {
+    margin-left: 20px;
+}
+
+.content {
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.content > h3 {
+    text-decoration: underline;
+    color: #4679BD;
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
+.content > details {
+    margin-left: 20px;
+}

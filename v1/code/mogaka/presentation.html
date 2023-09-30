@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!--
+Present minutes for a selected intern and date using the mutall_data library 
+and the following strategy:-
+1. Extend the library page class with a new one called tracker
+2. Override the show_panels method without own version
+3. Call the show_panels method from this page
+
+For this version the intern and date values will be hard-wired
+
+-->
+<html>
+    <head>
+        <title>Presentation</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script type="module">
+            //
+            //Import the tracker class (which is an extension of outlook page)
+            import { presentation } from "./presentation.js";
+            //
+            // Call function that displays data after page load is completed
+            window.onload = async () => {
+                //
+                //Create a tracket object
+                //Pass in the presentation primary key and an optional anchor element
+                const Presentation = new presentation(39);
+                //
+                //Make the tracker visible outside this script
+                window.Presentation = Presentation;
+                //
+                //Now execute the show pannels method
+                await Presentation.show_panels();
+            };
+        </script>
+        <link rel="stylesheet" href="./presentation.css" />
+    </head>
+    <body id="body">
+        <!--Dialog to collect contributions from members-->
+        <dialog id="contributions_dialog">
+            <fieldset>
+                <legend>Enter your contributions below:</legend>
+                <div>
+                    <label data-required="true" data-iotype="text" id="summary">
+                        Summary: <input type="text"  />
+                        <span class="error"></span>
+                    </label>
+                </div>
+                <div>
+                    <label data-iotype="textarea" id="detail">
+                        Details:
+                        <br />
+                        <textarea
+                            
+                            rows="10"
+                            cols="100"
+                            placeholder="Enter your contributions!!"
+                            >
+                        </textarea>
+                        <span class="error"></span>
+                    </label>
+                    <span class="error"></span>
+                </div>
+                <span class="error"></span>
+                <div>
+                    <button id="save">Save</button>
+                    <button onclick="Presentation.dismiss_dialog()">Close</button>
+                    <button id="cancel">Cancel</button>
+                </div>
+                <div id="report">
+                    
+                </div>
+            </fieldset>
+        </dialog>
+    </body>
+</html>
