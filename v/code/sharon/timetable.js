@@ -1,6 +1,10 @@
+//
+// Importmutall error from the library
 import { mutall_error } from "./../../../../schema/v/code/schema.js";
 //Import the page and view class from outtlook
 import { page } from "./../../../../outlook/v/code/view.js";
+//The project interface was delevopled by mogaka; hence the namespace
+import * as mogaka from "./../mogaka/presentation.js";
 //Execute PHP methods from javascript
 import { exec } from "./../../../../schema/v/code/server.js";
 //
@@ -131,7 +135,7 @@ export class timetable extends page {
     //Direct mappings..
     // fullname, surname, year, qualification, university, 
     //
-    //special mappins
+    //special mappings
     // image, workplan, presentations
     //}
     //Start by populating the direct mappings, followed by the special cases
@@ -238,13 +242,20 @@ export class timetable extends page {
         if (presentations && presentation !== null)
             presentation.forEach(p => {
                 // create the div tag 
-                const div = this.create_element("div", presentations);
+                const div = this.create_element("div", presentations, { className: "presentations" });
                 //
                 //Attach the text content which is the date
                 div.textContent = p.date;
                 //
                 // Add the onclick
-                div.onclick = () => alert("Welcome");
+                // get the content anchor tag
+                const content = this.get_element("content");
+                //
+                //Get mogakas project
+                const presentation = new mogaka.presentation(p.presentation, content);
+                //
+                //Attach the mokaga'sevent
+                div.onclick = async () => await presentation.show_panels();
             });
     }
     //
@@ -306,22 +317,26 @@ class workplan extends page {
      */
     async show() {
         //
+        // Clear the content panel when showing the workplan
+        this.get_element('content').innerHTML = "";
+        // 
+        //
         //Attach the workplan to the content panel 
         const content = await this.get_workplan_dummy_html();
         //
-        // 
-        if (this.intern.workplan.length !== 0) {
+        // If there is no workplan return
+        if (this.intern.workplan.length === 0)
+            return;
+        //
+        //1.Use the dummy fragment to show the workplan for each intern 
+        this.intern.workplan.forEach(project => {
             //
-            //1.Use the dummy fragment to show the workplan for each intern 
-            this.intern.workplan.forEach(project => {
-                //
-                // Populate for each intern workplan
-                const keys = ['name', 'problem', 'plan', 'outcome'];
-                //
-                //Loop through each identifier of a project
-                keys.forEach(key => this.populate_key(key, content, project));
-            });
-        }
+            // Use the dummy fragment to show the workplan for each intern
+            const details = this.show_details(content);
+            //
+            // Populate Each interns details
+            this.populate_project(details, project);
+        });
     }
     //
     // Fetch the dummy to display the workplan and is the one that will be used 
@@ -338,13 +353,9 @@ class workplan extends page {
         //
         // Use the response to get the requested text
         const text = await response.text();
-        //1.Get the content panel id
-        const content = this.get_element('content');
-        //
-        content.innerHTML = text;
         //
         //Return the dummy text as requested 
-        return content;
+        return text;
     }
     //
     // Show the workplan as shown below      
@@ -384,6 +395,34 @@ class workplan extends page {
         elem.textContent = String(projects[key]);
         //
         // 4. Return the element
+        console.log(elem);
         return elem;
+    }
+    //
+    // Populate each project of an intern which includes the name,problem,plan 
+    // and outcome 
+    populate_project(details, project) {
+        //
+        // Get the keys of the data
+        const keys = ['name', 'problem', 'plan', 'outcome'];
+        //
+        //Loop through each identifier of a project
+        keys.forEach(key => this.populate_key(key, details, project));
+    }
+    //
+    //Show the details tag(indirectly, i.e., using outerHTML)
+    show_details(fragment) {
+        //1.Get the content panel id
+        const content = this.get_element('content');
+        //
+        //Create the details elemenet and attach to the anchor elenent which is
+        // the content panel
+        const div = this.create_element('div', content);
+        //
+        //Replace the element with the fragment
+        div.innerHTML = fragment;
+        //
+        //Return the fragmment
+        return div;
     }
 }

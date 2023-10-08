@@ -60,3 +60,21 @@ details details{
   border-radius: 160px;
   overflow: hidden;
 }
+.day{
+    font-size:  20px;
+    line-height: 1.5;
+    font-weight:600;
+}
+/*Give all the prsentation dates blue color and reduce font size*/
+.presentations{
+   color: blue;
+   font-size: 16px;
+   margin-left: 30px;
+   cursor: pointer;
+}
+/*Give the date division a hover for more visibility*/
+.presentations:hover{
+     text-decoration: underline;
+     transform: scale(1.1);
+}
+

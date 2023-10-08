@@ -1,8 +1,9 @@
 //Import the page class from outtlook
 import { page } from "../../../../outlook/v/code/view.js";
-import { template } from "../../../../outlook/v/code/outlook.js";
+//The project interface was delevopled by mogaka; hence the namespace
+import * as mogaka from "./../mogaka/presentation.js";
 //
-//
+// Import the server.js   
 import * as server from "../../../../schema/v/code/server.js";
 //
 //Thus cass is for managing liss of presenttaions
@@ -17,6 +18,7 @@ export class presentations extends page {
         //Run the query to get the minutes (data)
         const interns = await this.get_minutes();
         //
+        // Get the mobile_nav
         const mobile_nav = this.get_element("nav_mobile");
         //
         //Use the data to show the mid-header panel.
@@ -94,42 +96,23 @@ export class presentations extends page {
         //Output the presentaions, one by one, attaching them to the details
         presentations.forEach((p) => this.show_presentation(p, details));
     }
+    // This is the presentation div tag on the navigation panel
     /*
-       <div onclick='mogaka.show_minutes($pk)'> $date </div>
-       */
-    show_presentation(p, anchor) {
+     <div onclick='mogaka.show_minutes($pk)'> $date </div>
+     */
+    show_presentation(p, intern) {
         //
-        //Create the div tag
-        const div = this.create_element("div", anchor, {
+        //Create the presentation element on the navigation panel
+        const presentation_element = this.create_element("div", intern, {
             textContent: p.date,
         });
+        //Get the content  tag for anchoring the presentation
+        const content = this.get_element("content");
         //
-        //get the contemtent anchor tag
-        // const content: HTMLElement = this.get_element("content");
-        //        //
-        //        //Get mogakas project
-        //        const project = new mogaka.project(p.presentation, content);
-        //        //
-        //        //Attach the mokaga'sevent
+        //Create the presentation in the content panel
+        const presentation = new mogaka.presentation(p.presentation, content);
         //
-        //        div.onclick = async () => await this.project.show_panels();
-        div.onclick = async () => this.show_minutes("demo", "content", "minutes_demo.html");
-    }
-    async show_minutes(source_id, dest_id, file) {
-        //
-        // Create an instance of template clkass
-        const Template = new template(file);
-        //
-        //
-        const dest = [this, dest_id];
-        //
-        //
-        await Template.open();
-        //
-        //
-        Template.copy(source_id, dest);
-        //
-        //
-        Template.win.close();
+        //Attach onclick event on presentation element on the navigation panel
+        presentation_element.onclick = async () => await presentation.show_panels();
     }
 }

@@ -1,8 +1,12 @@
-
+//
+// Importmutall error from the library
 import {mutall_error} from "./../../../../schema/v/code/schema.js";
 
 //Import the page and view class from outtlook
 import {page} from "./../../../../outlook/v/code/view.js";
+
+//The project interface was delevopled by mogaka; hence the namespace
+import * as mogaka from "./../mogaka/presentation.js";
 
 //Execute PHP methods from javascript
 import {exec} from "./../../../../schema/v/code/server.js";
@@ -303,13 +307,20 @@ export class timetable extends page {
             presentation.forEach(p => {
 
                 // create the div tag 
-                const div: HTMLDivElement = this.create_element("div", presentations);
+                const div: HTMLDivElement = this.create_element("div", presentations,{className: "presentations"});
                 //
                 //Attach the text content which is the date
                 div.textContent = p.date;
                 //
                 // Add the onclick
-                div.onclick = () => alert("Welcome");
+                // get the content anchor tag
+                const content: HTMLElement = this.get_element("content");
+                //
+                //Get mogakas project
+                const presentation= new mogaka.presentation(p.presentation, content);
+                //
+                //Attach the mokaga'sevent
+                div.onclick = async () => await presentation.show_panels();
             });
     }
     //
@@ -367,30 +378,31 @@ class workplan extends page {
     </details> 
     ....
      */
-    public async show(): Promise<void> {  
+    public async show(): Promise<void> {
         //
-        //Attach the workplan to the content panel 
-        const content : HTMLElement= await this.get_workplan_dummy_html();
-        //
+        // Clear the content panel when showing the workplan
+        this.get_element('content').innerHTML = "";
         // 
-        if (this.intern.workplan.length !== 0){
+        // Get theworkplan dummy
+        const content : string = await this.get_workplan_dummy_html();
+        //
+        // If there is no workplan return
+        if (this.intern.workplan.length === 0) return;
+        //
+        //1.Use the dummy fragment to show the project for each intern 
+        this.intern.workplan.forEach(project => {
+             //
+            // Use the dummy fragment to show the workplan for each intern
+            const details:HTMLElement = this.show_details(content);   
             //
-            //1.Use the dummy fragment to show the workplan for each intern 
-            this.intern.workplan.forEach(project => {
-                //
-                // Populate for each intern workplan
-                const keys: Array<keyof Iproject> = ['name', 'problem', 'plan', 'outcome'];
-                //
-                //Loop through each identifier of a project
-                keys.forEach(key => this.populate_key(key, content, project));
-           })
-        }
-        
+            // Populate Each s details
+            this.populate_project(details,project);
+           })    
     }
     //
     // Fetch the dummy to display the workplan and is the one that will be used 
     // in populating the workplan:-
-    public async get_workplan_dummy_html(): Promise<HTMLElement> {
+    public async get_workplan_dummy_html(): Promise<string> {
         //
         // Get a server response using the dummy file
         const response: Response = await fetch('./workplan_dummy.html');
@@ -401,14 +413,9 @@ class workplan extends page {
         //
         // Use the response to get the requested text
         const text: string = await response.text();
-        
-        //1.Get the content panel id
-        const content: HTMLElement = this.get_element('content');
-        //
-        content.innerHTML = text; 
         //
         //Return the dummy text as requested 
-        return content;
+        return text;
     }
     //
     // Show the workplan as shown below      
@@ -435,19 +442,55 @@ class workplan extends page {
      */            
     //
     // This is a function for populating the keys
-    private populate_key(key: keyof Iproject, fragment: HTMLElement, projects: Iproject): HTMLElement {
+    private populate_key(key: keyof Iproject, fragment: HTMLElement, projects: Iproject):HTMLElement{
         //
         // 1. Find an element described by a key in a fragment
-        const elem: HTMLElement | null = fragment.querySelector(`[data-${key}]`);
+        const elem: HTMLElement | null = fragment.querySelector(`[data-${key}]`);     
         //
         // 2. If the element is null throw an error
         if (elem === null) throw new mutall_error(`No ${key} found in your fragment`);
+        
         //
         // 3. Populate the element of the given key with the intern details
         elem.textContent = String(projects[key]);
         //
         // 4. Return the element
+        console.log(elem);
         return elem;
+        
     }
-
+    //
+    // Populate each project of an intern which includes the name,problem,plan 
+    // and outcome 
+    private populate_project(details:HTMLElement,project:Iproject){
+        //
+        // Get the keys of the data
+        const keys: Array<keyof Iproject> = ['name', 'problem', 'plan', 'outcome'];
+        //
+        //Loop through each identifier of a project
+        keys.forEach(key => this.populate_key(key, details, project));
+    }
+    //
+    //Show the details tag(indirectly, i.e., using outerHTML)
+    private show_details(fragment: string): HTMLDivElement {
+         
+        //1.Get the content panel id
+        const content: HTMLElement = this.get_element('content');
+       
+        //
+        //Create the details elemenet and attach to the anchor elenent which is
+        // the content panel
+        const div: HTMLDivElement = this.create_element('div', content);
+        //
+        //Replace the element with the fragment
+        div.innerHTML = fragment;
+        //
+        //Return the fragmment
+        return div;
+    }     
 }
+    
+    
+
+
+
