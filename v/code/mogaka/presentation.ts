@@ -543,9 +543,7 @@ class contribution extends dialog<Icontribution>{
     ): Promise<'ok'|Error> {
         //
         //1. Collect the layouts of corresponding data
-        const layouts: Array<quest.layout> = [
-            ...this.collect_layouts(contribution),
-        ];
+        const layouts: Array<quest.layout> =[...this.collect_layouts(contribution)];
         //
         //2. Using the layouts save the write to the database
         //
@@ -582,30 +580,48 @@ class contribution extends dialog<Icontribution>{
         //Destructure the contribution data
         const {summary, detail, contributor, minute, ref} = data;
         //
-        //The owner of a presentation must be known
-        const owner = this.presentation.native?.intern;
-        if (!owner) throw new mutall_error('The owner of a presenttain must be known');
-        //
-        //produce layout of contribution summary
-        yield [summary, "contribution", "summary", ["contributor"]],
+        //Check to see if we are modifying an existing contribution or we are
+        //creating a new one. In cases of modification the data_original property 
+        //holds an original contribution from the database. otherwise the 
+        //data_original is undefined
+        //Generate different layouts depending on the situation 
+        if(this.data_original){
             //
-            //Produce the layout of the detail
-            yield [detail, "contribution", "detail", ["contributor"]],
+            //The primary key of the contribution
+            yield[this.data_original.contribution!, "contribution", "contribution" ], 
             //
-            //Get the current timestamp when the contribution was made
-            yield [ref, "contribution", "ref", ["contributor"]],
+            //The Summary of the contribution
+            yield[summary, "contribution", "summary"],
             //
-            //produce layout of intern/owner
-            yield [owner, "intern", "intern", ["owner"]],
+            //The detail of the contribution
+            yield[detail, "contribution", "detail"];
+        } else{
             //
-            //produce layout of intern/contributor
-            yield [contributor, "intern", "intern", ["contributor"]],
+            //The owner of a presentation must be known
+            const owner = this.presentation.native?.intern;
+            if (!owner) throw new mutall_error('The owner of a presenttain must be known');
             //
-            //produce layout of minute
-            yield [minute, "minute", "minute"],
-            //
-            //Get the presentation identifying the minute
-            yield [this.presentation.pk, "presentation", "presentation", ["owner"]];
+            //produce layout of contribution summary
+            yield [summary, "contribution", "summary", ["contributor"]],
+                //
+                //Produce the layout of the detail
+                yield [detail, "contribution", "detail", ["contributor"]],
+                //
+                //Get the current timestamp when the contribution was made
+                yield [ref, "contribution", "ref", ["contributor"]],
+                //
+                //produce layout of intern/owner
+                yield [owner, "intern", "intern", ["owner"]],
+                //
+                //produce layout of intern/contributor
+                yield [contributor, "intern", "intern", ["contributor"]],
+                //
+                //produce layout of minute
+                yield [minute, "minute", "minute"],
+                //
+                //Get the presentation identifying the minute
+                yield [this.presentation.pk, "presentation", "presentation", ["owner"]];
+        }
     }
     //
     //Return a  current timestamp as a string with the following pattern below:-
