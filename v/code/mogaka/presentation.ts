@@ -539,7 +539,7 @@ class contribution extends dialog<Icontribution>{
     //Use the questionnaire class to write the contribution to the database
     public async save(
         contribution: Icontribution
-    ): Promise<'ok'|Error> {
+    ): Promise<'Ok'|Error> {
         //
         //1. Collect the layouts of corresponding data
         const layouts: Array<quest.layout> =[...this.collect_layouts(contribution)];
@@ -556,7 +556,7 @@ class contribution extends dialog<Icontribution>{
         );
         //
         //
-        return results === "ok" ? "ok" : new Error(results);
+        return results === "Ok" ? "Ok" : new Error(results);
     }
     //
     //Collect all the data required to save a contribution along the following
