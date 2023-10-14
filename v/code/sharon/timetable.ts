@@ -41,7 +41,7 @@ type Iintern = {
     year: string,
     //
     //True if this is presenter of the day; otherwise false
-    presenter: boolean,
+    presenter: number,
     //
     //Allthe presenttaions of the current intern
     //
@@ -205,6 +205,14 @@ export class timetable extends page {
         //
         //Show the details tag(indirectly, i.e., using outerHTML)
         const details: HTMLDetailsElement = this.show_details(anchor, fragment);
+        //
+        // Highlight the next presenter intern by adding a classlist to those 
+        // interns with presentations
+        if (intern.presenter === 1){
+            //
+            // Add a styling to the next presenter
+            details.style.backgroundColor ='cyan';
+        }
         //
         //Show summary associated with the details
         this.show_summary(details, intern.image, intern.name);

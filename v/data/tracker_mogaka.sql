@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 01, 2023 at 11:17 AM
+-- Generation Time: Oct 11, 2023 at 04:46 PM
 -- Server version: 8.0.28
 -- PHP Version: 8.1.6
 
@@ -31,7 +31,8 @@ CREATE TABLE `contribution` (
   `contribution` int NOT NULL,
   `intern` int NOT NULL,
   `minute` int NOT NULL,
-  `content` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `summary` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `detail` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
   `ref` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -39,29 +40,38 @@ CREATE TABLE `contribution` (
 -- Dumping data for table `contribution`
 --
 
-INSERT INTO `contribution` (`contribution`, `intern`, `minute`, `content`, `ref`) VALUES
-(1, 20, 223, 'I have lost track of problem at hand. \r\nThe emphasis on tools and methods is worrying, more academic than business. \r\nNo mention of last week\'s experience.\r\n Which of the tecs was useful for demo \r\nVideo show unsatisfactory \r\nShow us how you cropped the image on the demo', '2023-07-18 14:53:48'),
-(2, 20, 231, 'Nothing on this?\r\nWhere do the boychild and marketing websites fit in your work plan?', '2023-07-18 14:51:48'),
-(3, 20, 202, 'Left align text and right align ', '2023-07-18 14:56:41'),
-(4, 20, 202, 'Show us get and set sumnary ', '2023-07-18 14:56:42'),
-(5, 20, 202, 'Add rank summary  ', '2023-07-18 14:56:43'),
-(6, 20, 202, 'Add bottom summary', '2023-07-18 14:51:42'),
-(7, 20, 208, 'Show code for comments ', '2023-07-18 14:56:44'),
-(8, 20, 208, 'Report progress on bundler Webpack ', '2023-07-18 14:56:45'),
-(9, 20, 208, 'Scribble/encrypt names', '2023-07-18 14:56:50'),
-(10, 20, 213, 'Sort the crumb cells ', '2023-07-18 14:56:46'),
-(11, 20, 213, 'Remove green background', '2023-07-18 14:56:47'),
-(12, 20, 213, 'Work on summaries, to show correct total, consider $-value', '2023-07-18 14:56:48'),
-(13, 20, 215, 'Show progress with SMS invoicing', '2023-07-18 14:52:48'),
-(14, 9, 202, 'Didn\'t take us through the interface. what does the subject column do?, debug services? ', '2023-07-18 14:56:40'),
-(15, 9, 202, 'Have a way of seeing individual student performance.', '2023-07-18 14:56:48'),
-(16, 18, 203, 'Maybe ranking by merit', '2023-07-18 14:56:48'),
-(17, 14, 209, 'test contribution', '2023-07-27 16:30:25'),
-(18, 14, 211, 'Test is it done', '2023-07-29 20:53:37'),
-(19, 14, 211, 'Test is it done', '2023-07-29 20:53:43'),
-(20, 14, 212, 'test 123', '2023-07-31 09:13:42'),
-(21, 14, 212, 'good work', '2023-07-31 09:38:27'),
-(22, 14, 212, 'good work kang\'ara', '2023-07-31 09:38:46');
+INSERT INTO `contribution` (`contribution`, `intern`, `minute`, `summary`, `detail`, `ref`) VALUES
+(1, 20, 223, 'I have lost track of problem at hand. \r\nThe emphasis on tools and methods is worrying, more academic than business. \r\nNo mention of last week\'s experience.\r\n Which of the tecs was useful for demo \r\nVideo show unsatisfactory \r\nShow us how you cropped the image on the demo', NULL, '2023-07-18 14:53:48'),
+(2, 20, 231, 'Nothing on this?\r\nWhere do the boychild and marketing websites fit in your work plan?', NULL, '2023-07-18 14:51:48'),
+(3, 20, 202, 'Left align text and right align ', NULL, '2023-07-18 14:56:41'),
+(4, 20, 202, 'Show us get and set sumnary ', NULL, '2023-07-18 14:56:42'),
+(5, 20, 202, 'Add rank summary  ', NULL, '2023-07-18 14:56:43'),
+(6, 20, 202, 'Add bottom summary', NULL, '2023-07-18 14:51:42'),
+(7, 20, 208, 'Show code for comments ', NULL, '2023-07-18 14:56:44'),
+(8, 20, 208, 'Report progress on bundler Webpack ', NULL, '2023-07-18 14:56:45'),
+(9, 20, 208, 'Scribble/encrypt names', NULL, '2023-07-18 14:56:50'),
+(10, 20, 213, 'Sort the crumb cells ', NULL, '2023-07-18 14:56:46'),
+(11, 20, 213, 'Remove green background', NULL, '2023-07-18 14:56:47'),
+(12, 20, 213, 'Work on summaries, to show correct total, consider $-value', NULL, '2023-07-18 14:56:48'),
+(13, 20, 215, 'Show progress with SMS invoicing', NULL, '2023-07-18 14:52:48'),
+(14, 9, 202, 'Didn\'t take us through the interface. what does the subject column do?, debug services? ', NULL, '2023-07-18 14:56:40'),
+(15, 9, 202, 'Have a way of seeing individual student performance.', NULL, '2023-07-18 14:56:48'),
+(16, 18, 203, 'Maybe ranking by merit', NULL, '2023-07-18 14:56:48'),
+(17, 14, 209, 'test contribution', NULL, '2023-07-27 16:30:25'),
+(18, 14, 211, 'Test is it done', NULL, '2023-07-29 20:53:37'),
+(19, 14, 211, 'Test is it done', NULL, '2023-07-29 20:53:43'),
+(20, 14, 212, 'test 123', '1015 if its us vs you who is it going to be', '2023-07-31 09:13:42'),
+(21, 14, 212, 'good work', NULL, '2023-07-31 09:38:27'),
+(22, 14, 212, 'good work kang\'ara', NULL, '2023-07-31 09:38:46'),
+(27, 14, 214, 'james', 'test contribution', '2023-09-02 20:22:42'),
+(28, 14, 214, 'james', 'another test ...', '2023-09-02 22:58:25'),
+(29, 14, 205, 'test contribution', 'tkasdjfhdkjsfjsajhdjhajjhdfsdsdfdsadsdd', '2023-09-04 12:58:07'),
+(30, 14, 203, 'test', 'test 123', '2023-10-10 10:43:53'),
+(31, 14, 205, 'good', 'great times', '2023-10-10 10:47:20'),
+(32, 14, 206, 'jj', 'jjjjjjjjj', '2023-10-10 11:10:34'),
+(33, 14, 204, 'jjjjjjjjj', 'fyuj', '2023-10-10 11:53:57'),
+(34, 14, 205, 'jjjjjjjjj', 'da', '2023-10-10 11:56:24'),
+(35, 14, 212, 'another test', 'Dj james', '2023-10-10 22:55:06');
 
 -- --------------------------------------------------------
 
@@ -166,7 +176,32 @@ INSERT INTO `file` (`file`, `name`) VALUES
 (71, 'mwaniki_20230707.md'),
 (72, 'mogaka_20230710.md'),
 (73, 'mogaka.html'),
-(74, 'omondi.html');
+(74, 'omondi.html'),
+(75, 'munya_20230711.md'),
+(76, 'wanjiru_20230712.md'),
+(77, 'muli_20230713.md'),
+(78, 'karanja_20230717.md'),
+(79, 'omondi_20230718.md'),
+(80, 'mungai_20230719.md'),
+(81, 'kibe_20230720.md'),
+(82, 'mbugua_20230721.md'),
+(83, 'kangara_20230724.md'),
+(84, 'munya_20230725.md'),
+(85, 'wanjiru_20230726.md'),
+(86, 'muli_20230727.md'),
+(87, 'kamau_20230728.md'),
+(88, 'kangara_20230731.md'),
+(89, 'munya_20230801.md'),
+(90, 'mungai_20230802.md'),
+(91, 'kibe_20230803.md'),
+(92, 'mbugua_20230804.md'),
+(93, 'mogaka_20230807.md'),
+(94, 'wanjiru_20230809.md'),
+(95, 'kibe_20230810.md'),
+(96, 'kamau_20230811.md'),
+(97, 'kangara_20230814.md'),
+(98, 'munya_20230815.md'),
+(99, 'mbugua_20230818.md');
 
 -- --------------------------------------------------------
 
@@ -185,34 +220,35 @@ CREATE TABLE `intern` (
   `image` varchar(400) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `qualification` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `year` int DEFAULT NULL,
-  `university` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL
+  `university` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `user` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `intern`
 --
 
-INSERT INTO `intern` (`intern`, `name`, `surname`, `initials`, `day`, `start_date`, `end_date`, `image`, `qualification`, `year`, `university`) VALUES
-(1, 'Andrew Mugambi', 'mugambi', 'AM', 'Monday', '2023-03-09', '2023-06-05', 'http://206.189.207.206/tracker/portfolio/2023/image/drew.jpg', 'Bsc. Business Information Technology', 2016, 'African Nazarene University'),
-(2, 'Bernard Muli', 'muli', 'BM', 'Friday', '2023-03-09', '9999-12-31', 'http://206.189.207.206/tracker/v/images/muli.jpg', 'Certificate in IT', 2017, 'Daystar University'),
-(3, 'Carol Wawira', 'wawira', 'CW', 'Wednesday', '2023-03-09', '9999-12-31', 'http://drive.google.com/uc?export=view&id=1xlKJbMwmZw6unrBj8RCWpXBytNXS4kKX', 'Diploma in Business Information Technology', 2022, 'Cooperative University'),
-(4, 'Daniel Kaniu', 'kaniu', 'DK', 'Friday', '2023-03-09', '9999-12-31', 'http://206.189.207.206/tracker/portfolio/2023/image/me.jpeg', 'Bsc. Business Information Technology ', 2019, 'Jomo Kenyatta University of Agriculture and Technology'),
-(5, 'Francis Nyakundi', 'nyakundi', 'FN', 'Tuesday', '2023-03-09', '2023-06-05', 'http://206.189.207.206/tracker/v/images/frank.jpg', 'Diploma in Information Technology', 2021, 'Nairobi Technical'),
-(6, 'George Kangara', 'kangara', 'GK', 'Monday', '2023-03-09', '9999-12-31', 'http://206.189.207.206/tracker/portfolio/2023/kangara.html', 'Bsc Computer Technology', 2019, 'Meru University'),
-(7, 'George Munya', 'munya', 'GM', 'Tuesday', '2023-03-09', '9999-12-31', 'https://lh3.googleusercontent.com/x7nJjq2_nEWxboeNnPQq1lqGs55EZGVie8UatieTs31D9LSXZ0whOYX56QHZNpKaJyvBQY5iaT_V4vvVfWEpiGvo_HkBkGV-dX-MWV_LwaSlqtM2WpQBDynL_KZ6EUmgBFMg8j-nww=w600-h315-p-k', 'Diploma in Information Communication Technology', 2022, 'Kabete Technical'),
-(8, 'Isaac Waweru', 'waweru', 'IW', 'Monday', '2023-03-09', '2023-06-05', 'http://206.189.207.206/tracker/portfolio/image/weru.jpg', 'Bsc. Mechatronics Engineering', 2019, 'Dedan Kimathi University of Technology'),
-(9, 'James Kiberenge', 'kiberenge', 'JK', 'Thursday', '2023-03-09', '9999-12-31', 'https://lh3.googleusercontent.com/pw/AMWts8CyI5Nz8iqJYeK5oLBujhR23dm-FV4RtO-TUoxHoVMoT9_J0kpIi5StZsomLL4yeFi68a-fFvjjJashydaAYi4JnUAWYdE6qPGyefQ4yGkoa5_hCqi6B8CY_lO6xb0cg4qo-OEBqy0gU1Rtq74r-lrySQ=w708-h960-s-no?authuser=0', 'Diploma in Information Technology', 2020, 'KCA'),
-(10, 'Joan Nduta', 'nduta', 'JN', 'Thursday', '2023-03-09', '2023-06-05', 'https://drive.google.com/uc?export=view&id=1gETpOsBaik0CumLnEZIEG1u4lkgi1ptl', 'Bsc Economics and Statistics', 2023, 'Egerton University'),
-(11, 'Peter Kamau', 'kungu', 'PK', 'Friday', '2023-03-09', '9999-12-31', 'https://db3pap003files.storage.live.com/y4mYkTxSEdlNhFREDQ7FZvRrdtMGliIzvjGykN_dx2Y16yNfAx0pECbD0sPnKLa9Xmc4u0E--9P-m5PO02f5A2BiZxJd-Iz8d4FGlhV899pAgFC5tn_p2UIGUfyJUeW0kDeuTEGWqTvbvvb6W2dNW-nVWk-5knHb0dbsIdk21q-g5cI5mQjSMhznMMK1ksAMIWX?width=256&amp;height=256&amp;cropmode=none', 'Bsc.  Mathematics and Computer Science', 2019, 'Multimedia University'),
-(12, 'Chris Ndungu', 'kinyanjui', 'CK', 'Tuesday', '2023-03-09', '9999-12-31', 'http://206.189.207.206/tracker/portfolio/image/reece.jpeg', 'Bsc. Computer Science', 2024, 'Dedan Kimathi University of Technology'),
-(13, 'Simon Mwangi', 'karanja', 'MK', 'Monday', '2023-06-02', '2023-08-31', NULL, 'Diploma in IT', 2023, 'Cooperative University'),
-(14, 'James Oyondi', 'mogaka', 'JM', 'Monday', '2023-05-24', '2023-08-24', NULL, 'Bsc. Computer Science', 2024, 'Dedan Kimathi University of Technology'),
-(15, 'Joseph Mwaniki', 'mwaniki', 'JM', 'Friday', '2023-03-09', '9999-12-31', 'http://206.189.207.206/tracker/portfolio/image/mwaniki.jpg', 'Bsc. Sales and Marketing', 2018, 'Presbyterian University'),
-(16, 'Sharon Wanjiru', 'wanjiru', 'SW', 'Wednesday', '2023-03-09', '9999-12-31', '', 'Bsc. Informatics and Computer Science', 2023, 'Strathmore University'),
-(17, 'Joshua Samuel Omondi', 'omondi', 'JS', 'Tuesday', '2023-06-06', '2023-08-01', NULL, 'Bsc.Computer Science', 2024, 'Dedan Kimathi University of Technology'),
-(18, 'Kelvin Mungai Wanjiru', 'mungai', 'KM', 'Wednesday', '2023-06-05', '2023-09-05', NULL, 'Bsc.Information Technology', 2025, 'Masinde Muliro University'),
-(19, 'Anne Wanjiru Mbugua', 'mbugua', 'AW', 'Friday', '2023-06-14', '9999-12-31', 'http://206.189.207.206/tracker/portfolio/image/mbugua.jpg', 'Bsc. Biochemistry', 2019, 'University of Nairobi'),
-(20, 'Peter Kariuki Muraya', 'muraya', 'PM', 'Friday', '2023-06-28', '9999-12-31', NULL, NULL, NULL, NULL);
+INSERT INTO `intern` (`intern`, `name`, `surname`, `initials`, `day`, `start_date`, `end_date`, `image`, `qualification`, `year`, `university`, `user`) VALUES
+(1, 'Andrew Mugambi', 'mugambi', 'AM', 'Monday', '2023-03-09', '2023-06-05', 'http://206.189.207.206/tracker/portfolio/2023/image/drew.jpg', 'Bsc. Business Information Technology', 2016, 'African Nazarene University', 1316),
+(2, 'Bernard Muli', 'muli', 'BM', 'Thursday', '2023-03-09', '9999-12-31', 'http://206.189.207.206/tracker/v/images/muli.jpg', 'Certificate in IT', 2017, 'Daystar University', 1317),
+(3, 'Carol Wawira', 'wawira', 'CW', 'Wednesday', '2023-03-09', '9999-12-31', 'http://drive.google.com/uc?export=view&id=1xlKJbMwmZw6unrBj8RCWpXBytNXS4kKX', 'Diploma in Business Information Technology', 2022, 'Cooperative University', 1318),
+(4, 'Daniel Kaniu', 'kaniu', 'DK', 'Friday', '2023-03-09', '9999-12-31', 'http://206.189.207.206/tracker/portfolio/2023/image/me.jpeg', 'Bsc. Business Information Technology ', 2019, 'Jomo Kenyatta University of Agriculture and Technology', 173),
+(5, 'Francis Nyakundi', 'nyakundi', 'FN', 'Tuesday', '2023-03-09', '2023-06-05', 'http://206.189.207.206/tracker/v/images/frank.jpg', 'Diploma in Information Technology', 2021, 'Nairobi Technical', 1210),
+(6, 'George Kangara', 'kangara', 'GK', 'Monday', '2023-03-09', '9999-12-31', 'http://206.189.207.206/tracker/portfolio/2023/kangara.html', 'Bsc Computer Technology', 2019, 'Meru University', 1319),
+(7, 'George Munya', 'munya', 'GM', 'Tuesday', '2023-03-09', '9999-12-31', 'https://lh3.googleusercontent.com/x7nJjq2_nEWxboeNnPQq1lqGs55EZGVie8UatieTs31D9LSXZ0whOYX56QHZNpKaJyvBQY5iaT_V4vvVfWEpiGvo_HkBkGV-dX-MWV_LwaSlqtM2WpQBDynL_KZ6EUmgBFMg8j-nww=w600-h315-p-k', 'Diploma in Information Communication Technology', 2022, 'Kabete Technical', 1320),
+(8, 'Isaac Waweru', 'waweru', 'IW', 'Monday', '2023-03-09', '2023-06-05', 'http://206.189.207.206/tracker/portfolio/image/weru.jpg', 'Bsc. Mechatronics Engineering', 2019, 'Dedan Kimathi University of Technology', 1254),
+(9, 'James Kiberenge', 'kiberenge', 'JK', 'Thursday', '2023-03-09', '9999-12-31', 'https://lh3.googleusercontent.com/pw/AMWts8CyI5Nz8iqJYeK5oLBujhR23dm-FV4RtO-TUoxHoVMoT9_J0kpIi5StZsomLL4yeFi68a-fFvjjJashydaAYi4JnUAWYdE6qPGyefQ4yGkoa5_hCqi6B8CY_lO6xb0cg4qo-OEBqy0gU1Rtq74r-lrySQ=w708-h960-s-no?authuser=0', 'Diploma in Information Technology', 2020, 'KCA', 1321),
+(10, 'Joan Nduta', 'nduta', 'JN', 'Thursday', '2023-03-09', '2023-06-05', 'https://drive.google.com/uc?export=view&id=1gETpOsBaik0CumLnEZIEG1u4lkgi1ptl', 'Bsc Economics and Statistics', 2023, 'Egerton University', 1322),
+(11, 'Peter Kamau', 'kungu', 'PK', 'Friday', '2023-03-09', '9999-12-31', 'https://db3pap003files.storage.live.com/y4mYkTxSEdlNhFREDQ7FZvRrdtMGliIzvjGykN_dx2Y16yNfAx0pECbD0sPnKLa9Xmc4u0E--9P-m5PO02f5A2BiZxJd-Iz8d4FGlhV899pAgFC5tn_p2UIGUfyJUeW0kDeuTEGWqTvbvvb6W2dNW-nVWk-5knHb0dbsIdk21q-g5cI5mQjSMhznMMK1ksAMIWX?width=256&amp;height=256&amp;cropmode=none', 'Bsc.  Mathematics and Computer Science', 2019, 'Multimedia University', 1323),
+(12, 'Chris Ndungu', 'kinyanjui', 'CK', 'Tuesday', '2023-03-09', '9999-12-31', 'http://206.189.207.206/tracker/portfolio/image/reece.jpeg', 'Bsc. Computer Science', 2024, 'Dedan Kimathi University of Technology', 1324),
+(13, 'Simon Mwangi', 'karanja', 'MK', 'Monday', '2023-06-02', '2023-08-31', NULL, 'Diploma in IT', 2023, 'Cooperative University', 1325),
+(14, 'James Oyondi', 'mogaka', 'JM', 'Monday', '2023-05-24', '2023-08-24', NULL, 'Bsc. Computer Science', 2024, 'Kirinyaga University ', 1326),
+(15, 'Joseph Mwaniki', 'mwaniki', 'JM', 'Friday', '2023-03-09', '9999-12-31', 'http://206.189.207.206/tracker/portfolio/image/mwaniki.jpg', 'Bsc. Sales and Marketing', 2018, 'Presbyterian University', 1327),
+(16, 'Sharon Wanjiru', 'wanjiru', 'SW', 'Wednesday', '2023-03-09', '9999-12-31', '', 'Bsc. Informatics and Computer Science', 2023, 'Strathmore University', 1328),
+(17, 'Joshua Samuel Omondi', 'omondi', 'JS', 'Tuesday', '2023-06-06', '2023-08-01', NULL, 'Bsc.Computer Science', 2024, 'Dedan Kimathi University of Technology', 1329),
+(18, 'Kelvin Mungai Wanjiru', 'mungai', 'KM', 'Wednesday', '2023-06-05', '2023-09-05', NULL, 'Bsc.Information Technology', 2025, 'Masinde Muliro University', 1330),
+(19, 'Anne Wanjiru Mbugua', 'mbugua', 'AW', 'Friday', '2023-06-14', '9999-12-31', 'http://206.189.207.206/tracker/portfolio/image/mbugua.jpg', 'Bsc. Biochemistry', 2019, 'University of Nairobi', 1331),
+(20, 'Peter Kariuki Muraya', 'muraya', 'PM', 'Friday', '2023-06-28', '9999-12-31', NULL, NULL, NULL, NULL, 181);
 
 -- --------------------------------------------------------
 
@@ -566,7 +602,32 @@ INSERT INTO `presentation` (`presentation`, `intern`, `file`, `date`, `reason`) 
 (55, 9, 69, '2023-07-06', NULL),
 (56, 19, 70, '2023-07-07', NULL),
 (57, 15, 71, '2023-07-07', NULL),
-(58, 14, 72, '2023-07-10', NULL);
+(58, 14, 72, '2023-07-10', NULL),
+(59, 7, 75, '2023-07-11', NULL),
+(60, 16, 76, '2023-07-12', NULL),
+(61, 2, 77, '2023-07-13', NULL),
+(62, 13, 78, '2023-07-17', NULL),
+(63, 17, 79, '2023-07-18', NULL),
+(64, 18, 80, '2023-07-19', NULL),
+(65, 9, 81, '2023-07-20', NULL),
+(66, 19, 82, '2023-07-21', NULL),
+(67, 6, 83, '2023-07-24', NULL),
+(68, 7, 84, '2023-07-25', NULL),
+(69, 16, 85, '2023-07-26', NULL),
+(70, 2, 86, '2023-07-27', NULL),
+(71, 11, 87, '2023-07-28', NULL),
+(72, 6, 88, '2023-07-31', NULL),
+(73, 7, 89, '2023-08-01', NULL),
+(74, 18, 90, '2023-08-02', NULL),
+(75, 10, 91, '2023-08-03', NULL),
+(76, 19, 92, '2023-08-04', NULL),
+(77, 14, 93, '2023-08-07', NULL),
+(78, 16, 94, '2023-08-09', NULL),
+(79, 10, 95, '2023-08-10', NULL),
+(80, 11, 96, '2023-08-11', NULL),
+(81, 6, 97, '2023-08-14', NULL),
+(82, 7, 98, '2023-08-15', NULL),
+(83, 19, 99, '2023-08-18', NULL);
 
 -- --------------------------------------------------------
 
@@ -651,31 +712,30 @@ INSERT INTO `project` (`project`, `workplan`, `name`, `problem`, `plan`, `outcom
 CREATE TABLE `workplan` (
   `workplan` int NOT NULL,
   `intern` int NOT NULL,
-  `file` int DEFAULT NULL,
-  `link` varchar(256) NOT NULL
+  `file` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `workplan`
 --
 
-INSERT INTO `workplan` (`workplan`, `intern`, `file`, `link`) VALUES
-(1, 6, 39, ''),
-(2, 4, 40, ''),
-(3, 16, 51, ''),
-(4, 9, 42, ''),
-(5, 12, 43, ''),
-(6, 11, 44, ''),
-(7, 1, 45, ''),
-(8, 2, 46, ''),
-(9, 10, 50, ''),
-(10, 7, 48, ''),
-(11, 15, 49, ''),
-(12, 3, 52, ''),
-(13, 8, 53, ''),
-(14, 14, 73, ''),
-(15, 13, 41, ''),
-(16, 17, 74, '');
+INSERT INTO `workplan` (`workplan`, `intern`, `file`) VALUES
+(1, 6, 39),
+(2, 4, 40),
+(3, 16, 51),
+(4, 9, 42),
+(5, 12, 43),
+(6, 11, 44),
+(7, 1, 45),
+(8, 2, 46),
+(9, 10, 50),
+(10, 7, 48),
+(11, 15, 49),
+(12, 3, 52),
+(13, 8, 53),
+(14, 14, 73),
+(15, 13, 41),
+(16, 17, 74);
 
 --
 -- Indexes for dumped tables
@@ -714,7 +774,8 @@ ALTER TABLE `file`
 ALTER TABLE `intern`
   ADD PRIMARY KEY (`intern`),
   ADD UNIQUE KEY `id` (`surname`) USING BTREE,
-  ADD KEY `surname` (`surname`);
+  ADD KEY `surname` (`surname`),
+  ADD KEY `intern_user` (`user`);
 
 --
 -- Indexes for table `minute`
@@ -750,9 +811,9 @@ ALTER TABLE `project`
 --
 ALTER TABLE `workplan`
   ADD PRIMARY KEY (`workplan`),
-  ADD KEY `intern` (`intern`,`file`),
   ADD KEY `file` (`file`),
-  ADD KEY `portfolio` (`workplan`);
+  ADD KEY `portfolio` (`workplan`),
+  ADD KEY `id` (`intern`) USING BTREE;
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -762,7 +823,7 @@ ALTER TABLE `workplan`
 -- AUTO_INCREMENT for table `contribution`
 --
 ALTER TABLE `contribution`
-  MODIFY `contribution` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `contribution` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `copy`
@@ -774,7 +835,7 @@ ALTER TABLE `copy`
 -- AUTO_INCREMENT for table `file`
 --
 ALTER TABLE `file`
-  MODIFY `file` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
+  MODIFY `file` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
 
 --
 -- AUTO_INCREMENT for table `intern`
@@ -792,7 +853,7 @@ ALTER TABLE `minute`
 -- AUTO_INCREMENT for table `presentation`
 --
 ALTER TABLE `presentation`
-  MODIFY `presentation` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `presentation` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
 
 --
 -- AUTO_INCREMENT for table `project`
@@ -824,6 +885,12 @@ ALTER TABLE `copy`
   ADD CONSTRAINT `copy_ibfk_1` FOREIGN KEY (`intern`) REFERENCES `intern` (`intern`),
   ADD CONSTRAINT `copy_ibfk_2` FOREIGN KEY (`presentation`) REFERENCES `presentation` (`presentation`),
   ADD CONSTRAINT `copy_ibfk_3` FOREIGN KEY (`file`) REFERENCES `file` (`file`);
+
+--
+-- Constraints for table `intern`
+--
+ALTER TABLE `intern`
+  ADD CONSTRAINT `intern_user` FOREIGN KEY (`user`) REFERENCES `mutall_users`.`user` (`user`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
 -- Constraints for table `minute`
