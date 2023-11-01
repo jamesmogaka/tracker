@@ -350,7 +350,7 @@ class contribution extends dialog<Icontribution>{
     ){
         //
         //Parent class initialization
-        super({url:"/tracker/v/code/mogaka/contribution.html",anchor},native);    
+        super(anchor, native, true, "/tracker/v/code/mogaka/contribution.html");    
     }
     //
     //Opposite of get_value

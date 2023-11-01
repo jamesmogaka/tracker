@@ -1,273 +1,145 @@
 [{
-        "name": "Shule",
-        "plan": "The plan is to develop a system that will be user-friendly ",
-        "minutes": [{
-                "detail": "significant color are pink, sky blue",
-                "minute": 202,
-                "numeral": "1.1",
-                "summary": "Remove the color(Green)",
-                "contributions": [{
-                        "ref": "2023-07-18 14:56:41.000000",
-                        "detail": null,
-                        "intern": 20,
-                        "minute": 202,
-                        "summary": "Left align text and right align ",
-                        "surname": "muraya",
-                        "contribution": 3
-                    }, {
-                        "ref": "2023-07-18 14:56:42.000000",
-                        "detail": null,
-                        "intern": 20,
-                        "minute": 202,
-                        "summary": "Show us get and set sumnary ",
-                        "surname": "muraya",
-                        "contribution": 4
-                    }, {
-                        "ref": "2023-07-18 14:56:43.000000",
-                        "detail": null,
-                        "intern": 20,
-                        "minute": 202,
-                        "summary": "Add rank summary  ",
-                        "surname": "muraya",
-                        "contribution": 5
-                    }, {
-                        "ref": "2023-07-18 14:51:42.000000",
-                        "detail": null,
-                        "intern": 20,
-                        "minute": 202,
-                        "summary": "Add bottom summary",
-                        "surname": "muraya",
-                        "contribution": 6
-                    }, {
-                        "ref": "2023-07-18 14:56:40.000000",
-                        "detail": null,
-                        "intern": 9,
-                        "minute": 202,
-                        "summary": "Didn't take us through the interface. what does the subject column do?, debug services? ",
-                        "surname": "kiberenge",
-                        "contribution": 14
-                    }, {
-                        "ref": "2023-07-18 14:56:48.000000",
-                        "detail": null,
-                        "intern": 9,
-                        "minute": 202,
-                        "summary": "Have a way of seeing individual student performance.",
-                        "surname": "kiberenge",
-                        "contribution": 15
-                    }]
-            }, {
-                "detail": "(by subject, alphabetical, summaries)",
-                "minute": 203,
-                "numeral": "1.2",
-                "summary": "Ranking of students",
-                "contributions": [{
-                        "ref": "2023-07-18 14:56:48.000000",
-                        "detail": null,
-                        "intern": 18,
-                        "minute": 203,
-                        "summary": "Maybe ranking by merit",
-                        "surname": "mungai",
-                        "contribution": 16
-                    }]
-            }, {
-                "detail": "Hide values(the raw numbers ie values) and only show relevant colors in the respective cells. ",
-                "minute": 204,
-                "numeral": "1.3",
-                "summary": "Color coding",
-                "contributions": null
-            }, {
-                "detail": null,
-                "minute": 205,
-                "numeral": "1.4",
-                "summary": "upload to the server the school system",
-                "contributions": null
-            }, {
-                "detail": " by implementing the save method using the questionnaire library",
-                "minute": 206,
-                "numeral": "1.5",
-                "summary": "Complete the 'edit-score' option",
-                "contributions": null
-            }, {
-                "detail": "by extending the 'edit-score' option",
-                "minute": 207,
-                "numeral": "1.6",
-                "summary": "Add option for creating and capturing exam results",
-                "contributions": null
-            }, {
-                "detail": "thus extending the worksheet",
-                "minute": 208,
-                "numeral": "1.7",
-                "summary": "Add the left and bottom margin summaries",
-                "contributions": [{
-                        "ref": "2023-07-18 14:56:44.000000",
-                        "detail": null,
-                        "intern": 20,
-                        "minute": 208,
-                        "summary": "Show code for comments ",
-                        "surname": "muraya",
-                        "contribution": 7
-                    }, {
-                        "ref": "2023-07-18 14:56:45.000000",
-                        "detail": null,
-                        "intern": 20,
-                        "minute": 208,
-                        "summary": "Report progress on bundler Webpack ",
-                        "surname": "muraya",
-                        "contribution": 8
-                    }, {
-                        "ref": "2023-07-18 14:56:50.000000",
-                        "detail": null,
-                        "intern": 20,
-                        "minute": 208,
-                        "summary": "Scribble/encrypt names",
-                        "surname": "muraya",
-                        "contribution": 9
-                    }]
-            }, {
-                "detail": "selected factor levels from display - This will allow users to focus on what matters at the time.Consider using checkboxes for filter.select options",
-                "minute": 209,
-                "numeral": "1.8",
-                "summary": "Hide user",
-                "contributions": [{
-                        "ref": "2023-07-27 16:30:25.000000",
-                        "detail": null,
-                        "intern": 14,
-                        "minute": 209,
-                        "summary": "test contribution",
-                        "surname": "mogaka",
-                        "contribution": 17
-                    }]
-            }, {
-                "detail": "Consider the fact that students graduate from one grade to another after an year by creating new progressions.",
-                "minute": 210,
-                "numeral": "1.9",
-                "summary": "Students graduation.",
-                "contributions": null
-            }],
-        "outcome": "The system will help in managing school results and make it easier to retrieve results anytime and anywhere. The school can also load scores that are not in the system. Get better managed code that will be easy to manage, debug and teach",
-        "problem": "Design, add a label for ticking, next to the crestlet row. Customization, different pages should be created from one page the main one, the others can be created by dragging the the factors to the page header or row factor. Have a restore button when a filter is selected and an empty page appers, this takes the user back to the previous populated page. Arranging the code in a object oriented manner that will help us navigate through the code using classes and their methods. Fixing a wrong input by allowing editing of results on the web-page ",
-        "project": 8
+        "name": "Andrew Mugambi",
+        "year": 2016,
+        "image": "http://206.189.207.206/tracker/portfolio/2023/image/drew.jpg",
+        "intern": 1,
+        "surname": "mugambi",
+        "workplan": null,
+        "presenter": 0,
+        "university": "African Nazarene University",
+        "presentations": null,
+        "qualification": "Bsc. Business Information Technology"
     }, {
-        "name": "School Research",
-        "plan": "See if there are other school problems i can solve using a system to make their work easier ",
-        "minutes": [{
-                "detail": " To see similarities and differences with reference to your shule system",
-                "minute": 211,
-                "numeral": "2.1",
-                "summary": "Investigate on NEMIS documentation",
-                "contributions": [{
-                        "ref": "2023-07-29 20:53:37.000000",
-                        "detail": null,
-                        "intern": 14,
-                        "minute": 211,
-                        "summary": "Test is it done",
-                        "surname": "mogaka",
-                        "contribution": 18
-                    }, {
-                        "ref": "2023-07-29 20:53:43.000000",
-                        "detail": null,
-                        "intern": 14,
-                        "minute": 211,
-                        "summary": "Test is it done",
-                        "surname": "mogaka",
-                        "contribution": 19
-                    }]
-            }],
-        "outcome": "Help the school easily manage their resources without much effort.",
-        "problem": "Identify Problems that schools are facing which may be finance related, book keeping, communicating to parents etc",
-        "project": 9
-    }, {
-        "name": "Chama",
-        "plan": "Work on chama system and have funtionalities that will help the user navigate through the application and in future be able to add their contributions",
-        "minutes": [{
-                "detail": "where (add relevant numbers 1 -4 which will show colors on each blank value in the contributions)",
-                "minute": 212,
-                "numeral": "3.1",
-                "summary": "Do a query",
-                "contributions": [{
-                        "ref": "2023-07-31 09:13:42.000000",
-                        "detail": null,
-                        "intern": 14,
-                        "minute": 212,
-                        "summary": "test 123",
-                        "surname": "mogaka",
-                        "contribution": 20
-                    }, {
-                        "ref": "2023-07-31 09:38:27.000000",
-                        "detail": null,
-                        "intern": 14,
-                        "minute": 212,
-                        "summary": "good work",
-                        "surname": "mogaka",
-                        "contribution": 21
-                    }, {
-                        "ref": "2023-07-31 09:38:46.000000",
-                        "detail": null,
-                        "intern": 14,
-                        "minute": 212,
-                        "summary": "good work kang'ara",
-                        "surname": "mogaka",
-                        "contribution": 22
-                    }]
+        "name": "George Kangara",
+        "year": 2019,
+        "image": "http://206.189.207.206/tracker/portfolio/2023/kangara.html",
+        "intern": 6,
+        "surname": "kangara",
+        "workplan": [{
+                "name": "Shule",
+                "plan": "The plan is to develop a system that will be user-friendly ",
+                "outcome": "The system will help in managing school results and make it easier to retrieve results anytime and anywhere. The school can also load scores that are not in the system. Get better managed code that will be easy to manage, debug and teach",
+                "problem": "Design, add a label for ticking, next to the crestlet row. Customization, different pages should be created from one page the main one, the others can be created by dragging the the factors to the page header or row factor. Have a restore button when a filter is selected and an empty page appers, this takes the user back to the previous populated page. Arranging the code in a object oriented manner that will help us navigate through the code using classes and their methods. Fixing a wrong input by allowing editing of results on the web-page "
             }, {
-                "detail": "For showing detailed and non detailed output",
-                "minute": 213,
-                "numeral": "3.2",
-                "summary": "Add a button",
-                "contributions": [{
-                        "ref": "2023-07-18 14:56:46.000000",
-                        "detail": null,
-                        "intern": 20,
-                        "minute": 213,
-                        "summary": "Sort the crumb cells ",
-                        "surname": "muraya",
-                        "contribution": 10
-                    }, {
-                        "ref": "2023-07-18 14:56:47.000000",
-                        "detail": null,
-                        "intern": 20,
-                        "minute": 213,
-                        "summary": "Remove green background",
-                        "surname": "muraya",
-                        "contribution": 11
-                    }, {
-                        "ref": "2023-07-18 14:56:48.000000",
-                        "detail": null,
-                        "intern": 20,
-                        "minute": 213,
-                        "summary": "Work on summaries, to show correct total, consider $-value",
-                        "surname": "muraya",
-                        "contribution": 12
-                    }]
-            }],
-        "outcome": "Have a system that is easier to navigate and that is presentable both on phone and big screen",
-        "problem": "Add the crown part, add a column selector, add a start date to every member, reload the data ",
-        "project": 11
-    }, {
-        "name": "Oritech",
-        "plan": "Display oritech data using school library",
-        "minutes": [{
-                "detail": "Add the subscription - rather what the client paid for",
-                "minute": 214,
-                "numeral": "4.1",
-                "summary": "Include additional info",
-                "contributions": null
+                "name": "School Research",
+                "plan": "See if there are other school problems i can solve using a system to make their work easier ",
+                "outcome": "Help the school easily manage their resources without much effort.",
+                "problem": "Identify Problems that schools are facing which may be finance related, book keeping, communicating to parents etc"
             }, {
-                "detail": null,
-                "minute": 215,
-                "numeral": "4.2",
-                "summary": "Color code to show balances",
-                "contributions": [{
-                        "ref": "2023-07-18 14:52:48.000000",
-                        "detail": null,
-                        "intern": 20,
-                        "minute": 215,
-                        "summary": "Show progress with SMS invoicing",
-                        "surname": "muraya",
-                        "contribution": 13
-                    }]
+                "name": "SheetJs",
+                "plan": "Using SheetJS library we can read and display excel data in HTML Table ",
+                "outcome": "Data loaded directly from excel",
+                "problem": "Unable to load excel files directly to the database "
+            }, {
+                "name": "Chama",
+                "plan": "Work on chama system and have funtionalities that will help the user navigate through the application and in future be able to add their contributions",
+                "outcome": "Have a system that is easier to navigate and that is presentable both on phone and big screen",
+                "problem": "Add the crown part, add a column selector, add a start date to every member, reload the data "
+            }, {
+                "name": "Oritech",
+                "plan": "Display oritech data using school library",
+                "outcome": "Well tabulated oritech data with invoices",
+                "problem": "Tabulation of oritech data"
             }],
-        "outcome": "Well tabulated oritech data with invoices",
-        "problem": "Tabulation of oritech data",
-        "project": 81
+        "presenter": 0,
+        "university": "Meru University",
+        "presentations": [{
+                "date": "2023-05-08",
+                "presentation": 23
+            }, {
+                "date": "2023-05-22",
+                "presentation": 34
+            }, {
+                "date": "2023-05-29",
+                "presentation": 32
+            }, {
+                "date": "2023-06-12",
+                "presentation": 39
+            }, {
+                "date": "2023-07-03",
+                "presentation": 52
+            }, {
+                "date": "2023-07-24",
+                "presentation": 67
+            }, {
+                "date": "2023-07-31",
+                "presentation": 72
+            }, {
+                "date": "2023-08-14",
+                "presentation": 81
+            }],
+        "qualification": "Bsc Computer Technology"
+    }, {
+        "name": "Isaac Waweru",
+        "year": 2019,
+        "image": "http://206.189.207.206/tracker/portfolio/image/weru.jpg",
+        "intern": 8,
+        "surname": "waweru",
+        "workplan": [{
+                "name": "Secure Parking",
+                "plan": "Use spectroscopy technology for detection of plant and soil health",
+                "outcome": null,
+                "problem": "Plant and soil health in agriculture is a big neccessity,many detection of any anomalies are done too late after the damage has been done."
+            }, {
+                "name": "Smart Farming",
+                "plan": "Embracing technology in our Farms.",
+                "outcome": null,
+                "problem": "Real time monitoring of farm conditions i.e Soil moisture ,alkalinity temperature and sending this parameters remotely to any location on a personal mobile."
+            }],
+        "presenter": 0,
+        "university": "Dedan Kimathi University of Technology",
+        "presentations": null,
+        "qualification": "Bsc. Mechatronics Engineering"
+    }, {
+        "name": "Simon Mwangi",
+        "year": 2023,
+        "image": null,
+        "intern": 13,
+        "surname": "karanja",
+        "workplan": [{
+                "name": "KKM Chat System",
+                "plan": "Identify the key features that you want in your chama chat system interface.",
+                "outcome": "Improved communication and collaboration among chama members.",
+                "problem": "Inefficient communication and collaboration among team members.\r\n"
+            }, {
+                "name": "Personal goals",
+                "plan": "plan",
+                "outcome": "As an ethical hacker, my ultimate goal should be to make use of nondestructive hacking techniques, determine whether or not vulnerabilities exist and demonstrate this to the system’s owner, close the flaws and improve the overall security of the system .",
+                "problem": "One of the main challenges of ethical hacking is the need to stay up-to-date with the latest security threats and vulnerabilities. This requires ongoing training and education to keep pace with the rapidly evolving threat landscape\r\n"
+            }],
+        "presenter": 1,
+        "university": "Cooperative University",
+        "presentations": [{
+                "date": "2023-06-26",
+                "presentation": 47
+            }, {
+                "date": "2023-07-17",
+                "presentation": 62
+            }],
+        "qualification": "Diploma in IT"
+    }, {
+        "name": "James Oyondi",
+        "year": 2024,
+        "image": null,
+        "intern": 14,
+        "surname": "mogaka",
+        "workplan": [{
+                "name": "Minutes Content Management",
+                "plan": "To develop a system that solves the shortcomings of the current minute management system which will manage each minute as an item rather than at the file level. This will be solved by creating a database model that will be used to record the currently existing minutes in the markdown file as items.\r\n\r\n",
+                "outcome": "An automated minutes system that will be capable of recording contributions from various users.",
+                "problem": "The minutes for interns are normally recorded in a markdown files whereby the files should follow a specified format. Currently the interns do not follow the specified format leading to minutes presentation(display) problems. The current system lacks a criteria of compiling contributions from various sources into the minutes session of next presentation."
+            }],
+        "presenter": 0,
+        "university": "Kirinyaga University ",
+        "presentations": [{
+                "date": "2023-06-19",
+                "presentation": 43
+            }, {
+                "date": "2023-07-10",
+                "presentation": 58
+            }, {
+                "date": "2023-08-07",
+                "presentation": 77
+            }],
+        "qualification": "Bsc. Computer Science"
     }]
