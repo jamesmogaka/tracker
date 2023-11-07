@@ -123,7 +123,6 @@ export class timetable extends page {
         //curren othegiven anchor
         this.model?.forEach(day => this.show_day(day, anchor, html));
     }
-
     //
     //2. Read the dummy html fragment; it represents one day of the timetable.
     //Read about the fetch command
@@ -163,7 +162,7 @@ export class timetable extends page {
         //Display each intern's personal details, by populating a htm fragment
         day.intern.forEach(intern => this.show_intern(day_element, fragment, intern));
     }
-
+    //
     //Display each intern's personal details, by populating the following html 
     //fragment
     /*

@@ -4,7 +4,7 @@
 type rent = {
     client: number,
     quaterly:boolean,
-    details: Array<{room_id: number, amount: number, rent_due: number}>,
+    details: Array<{room_id: number, area_ft: number, amount: number, rent_due: number}>,
     total_rent_due: number
 }
 */
@@ -37,7 +37,7 @@ with
     #
     # Read the reporting date from the period table
     # The start date of the report is gotten from the cutoff of the immediate period before
-    # the reporting period and the end date is the cutoff of the period specified by a matchin
+    # the reporting period and the end date is the cutoff of the period specified by a matching
     # year and month as the report_year and report_month specified 
     # The end date is simply fetched directly as it is from the period table but the start_date
     # we must calculate the month and even the year of the period just before the reporting period
@@ -66,7 +66,7 @@ with
     # all valid contracts that have not reached termination
     # Here we will get the start date of the contract the end date the acctual room 
     # that is rented and based on this infomation we can calculate the correct amount
-    # of rent before and after the review
+    # of rent before or after the review
     agreement as (
         select 
             agreement,
@@ -117,14 +117,14 @@ with
             genesis, 
             last_date,
             case 
-                when `terminated` < last_date then amount * @review_rate
+                when `termination_date` < last_date then amount * @review_rate
                 else amount
             end as amount
         from
             termination join report
     ),
     #
-    # We need also to calculate the new unit rent after the review period has elapsed
+    # We need also to calculate the new amount after the review period has elapsed
 
 
     #
@@ -133,7 +133,7 @@ with
     # There are two types of clients those who pay on a monthly basis and a quarterly basis
     # For the clients who pay on a monthly basis their rent will always remain
     # the same as the amount while for the clients who pay on a quarterly basis
-    # the rent is charged after every 3 months and it will is thrice the amount once
+    # the rent is charged after every 3 months and it will be thrice the amount once
     # it is charged
     rent as (
         select
@@ -158,7 +158,7 @@ with
         type report = {
             client: number,
             quterly: boolean,
-            details: {room:number, amount:number, rent_due:number},
+            details: Array<{room: number, area_ft: number, amount: number, rent_due: number}>,
             total_rent_due: number
         }
     */
@@ -169,6 +169,7 @@ with
             json_arrayagg(
                 json_object(
                     'room', rent.room, 
+                    'area_ft', room.width_ft * room.breadth_ft,
                     'amount', rent.amount,
                     'rent_due', rent.rent_due
                 )
@@ -176,6 +177,7 @@ with
             sum(rent.rent_due) as total_rent_due
         from
             rent
+            inner join room on rent.room = room.room
         group by rent.client,rent.quarterly
     )
 
