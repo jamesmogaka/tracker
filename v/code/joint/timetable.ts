@@ -152,9 +152,20 @@ export class timetable extends page {
     */
     private show_day(day: Itimetable, anchor: HTMLElement, fragment: string): void {
         //
-        //3.1 Create a details day element attached to the anchor
+        //Extablish the current day, i.e., Tuesday, Wednesday etc
+        //
+        //Get the current date time
+        const current_date:Date = new Date ();
+        //
+        // Extract the day name from the date 
+        const day_name: string = current_date.toLocaleDateString('en-US', { weekday: 'long' });
+        // 
+        // Create a details day element attached to the anchor
         const day_element: HTMLDetailsElement = this.create_element("details", anchor,
             {className: "day"});
+        //
+        //Open the day_element of the current day
+        if(day_name === day.day_name) day_element.open = true;
         //
         // Create a summary tag and attach the day_name
         this.create_element("summary", day_element, {textContent: day.day_name});
@@ -212,6 +223,9 @@ export class timetable extends page {
             //
             // Add a styling to the next presenter
             details.style.backgroundColor ='cyan';
+            //
+            //Open the details of the presenter
+            details.open = true;
         }
         //
         //Show summary associated with the details
@@ -225,7 +239,7 @@ export class timetable extends page {
         this.show_workplan(details,intern);
         //
         //Show all presetations for this intern sorted by the most recent first
-        this.show_presentations(details, intern.presentations);
+        this.show_presentations(details, intern.presentations, Boolean(intern.presenter));
     }
 
     //Show the details tag(indirectly, i.e., using outerHTML)
@@ -300,7 +314,7 @@ export class timetable extends page {
             <div onclick="this.mogaka.show_presentation(23)">2/5/2023</div>
             <div onclick="this.mogaka.show_presentation(43)">9/5/2023</div>
      */
-    private show_presentations(fragment: HTMLDetailsElement, presentation: Ipresentation[]): void {
+    private show_presentations(fragment: HTMLDetailsElement, presentation: Ipresentation[], is_open:boolean): void {
         //
         // Get the presentations element
         const presentations: HTMLElement | null = fragment.querySelector("[data-presentations]");
@@ -309,6 +323,9 @@ export class timetable extends page {
         if (presentations === null) {
             throw new mutall_error("No presentation element found");
         }
+        //
+        //Open the presentation element of the current presenter
+        (<HTMLDetailsElement>presentations).open = is_open;
         //
         //Display each presentation
         if (presentations && presentation !== null)
