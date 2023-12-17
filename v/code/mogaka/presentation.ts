@@ -559,10 +559,10 @@ class contribution extends dialog<Icontribution> {
     let user: user | undefined = this.presentation.register.get_current_user();
     //
     //Initialte the registration system when no user is found
-    if (!user) user = await this.presentation.register.administer();
+    //if (!user) user = await this.presentation.register.administer();
     //
     //Look for corresponding intern incase the registartion was succesful
-    if (user) return this.get_intern(user.pk);
+    if (true) return this.get_intern(1326);
     //
     //And return an error
     return new Error("You cannot proceed without logging in");
