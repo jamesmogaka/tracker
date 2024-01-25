@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* Apply some basic styling to the fieldset */
+      fieldset {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        width: 60%;
+      }
+
+      /* Style the legend */
+      legend {
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      /* Style the labels for input elements */
+      label {
+        display: block;
+        margin-bottom: 8px;
+      }
+
+      /* Style the select input */
+      select,
+      input[type="text"],
+      input[type="date"],
+      textarea {
+        width: 100%;
+        padding: 8px;
+        box-sizing: border-box;
+        margin-top: 4px;
+        margin-bottom: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      /* Style the checkbox input */
+      input[type="checkbox"] {
+        margin-top: 4px;
+        margin-bottom: 8px;
+      }
+
+      /* Add some spacing to the textarea */
+      textarea {
+        resize: vertical;
+      }
+
+      /* Style the required indicator */
+      label[required]::after {
+        content: " *";
+        color: red;
+      }
+
+      /* Apply styles to the option in the select dropdown */
+      select option {
+        padding: 8px;
+      }
+
+      /* Style the checkbox label */
+      [data-field="done"] {
+        display: flex;
+        align-items: center;
+      }
+
+      /* Add margin to the checkbox label text */
+      [data-field="done"] span {
+        margin-left: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <!-- Collect info to create a new presentation -->
+      <fieldset>
+        <legend>Presenation</legend>
+        <label data-field="date">
+          Date:
+          <input type="date" />
+        </label>
+      </fieldset>
+
+      <!-- Collect minutes of individual projects -->
+      <fieldset class="minute">
+        <legend>Minute</legend>
+
+        <!-- Project where the minute is to be added -->
+        <label data-field="project">
+          Project
+          <select id="project" required>
+            <option value=""></option>
+          </select>
+        </label>
+
+        <!-- The minute number -->
+        <label data-field="number">
+          Number
+          <input type="text" placeholder="1.1" required maxlength="20" />
+        </label>
+
+        <!-- The summary of the minute -->
+        <label data-field="summary">
+          Summary
+          <input type="text" required maxlength="50" />
+        </label>
+
+        <!-- Details of the minutes -->
+        <label data-field="details">
+          Details
+          <textarea cols="30" rows="10"> </textarea>
+        </label>
+
+        <!-- Flag to show weather the minute is done or not -->
+        <label data-field="done">
+          Is Done
+          <input type="checkbox" value="true" />
+        </label>
+      </fieldset>
+      <button id="add_minute">Add Minute</button>
+      <button id="save">Save</button>
+      <button id="cancel">Cancel</button>
+    </form>
+  </body>
+</html>
