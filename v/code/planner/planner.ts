@@ -4,6 +4,9 @@ import { view } from "../../../../outlook/v/code/view.js";
 //
 //Import the server library to help to communicate with the server
 import { exec } from "../../../../schema/v/code/server.js";
+//
+//Get the datatype/ definaition of a layout from the questionaaire lib
+
 
 //
 //Define the sturcture of data that will be retrieved form the query
@@ -66,23 +69,29 @@ export class planner extends view {
     const theme: HTMLTableCellElement = project.insertCell();
     //
     //Create an input and add it to the theme cell
-    const input = this.create_element("input", theme, { value: row.theme });
+    const input = this.create_element("input", theme, {
+      value: row.theme ?? "",
+    });
     //
     //Add the save functionality whenever a user looses focus
-    input.onblur = () => this.update_theme(input, row.theme);
+    input.onblur = () => this.update_theme(input, row);
   }
   //
   //Here we read the value of the input element and compare it to the initial theme
   //If there was a change in the theme we initate the process of saving the new theme
   //othewise we do nothing and retain the initial
-  private update_theme(input: HTMLInputElement, initial: string): void {
+  private update_theme(input: HTMLInputElement, proj: project): void {
     //
     //Read the value of the input
     const current: string = input.value;
     //
     //Compare the input value with the initial theme
-    if (current === initial) return;
+    if (current === proj.theme) return;
     //
     //Otherwise initiate the saving process
+    //
+    //Collect the layouts
+    //
+    //Save the data using the most common method
   }
 }
