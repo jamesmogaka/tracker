@@ -12,3 +12,9 @@ input {
   box-sizing: border-box;
   border: none;
 }
+
+/* @media only screen and (max-width: 600px) {
+  @page {
+    page-orientation: rotate-right;
+  }
+} */

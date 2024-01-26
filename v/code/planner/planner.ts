@@ -13,7 +13,7 @@ type project = {
   name: string;
   keywords: string;
   problem: string;
-  theme: string;
+  theme: string | null;
 };
 
 export class planner extends view {
@@ -49,13 +49,11 @@ export class planner extends view {
       [sql]
     );
     //
+    //Read the table body element from the html document
+    const tbody = <HTMLTableSectionElement>this.get_element("tbody");
+    //
     //Display the projects in the table
-    rows.forEach(async (row) =>
-      this.display_row(
-        row,
-        this.get_element("tbody") as HTMLTableSectionElement
-      )
-    );
+    rows.forEach((row) => this.display_row(row, tbody));
   }
   //
   //Dispaly a particular project entry in the table as  a row
