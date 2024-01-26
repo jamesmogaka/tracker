@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>TODO supply a title</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="planner.css" />
+    <script type="module">
+      //
+      //Import the controler
+      import { planner } from "./planner.js";
+      //
+      //Create an instance of the planner
+      const page = new planner();
+      //
+      //Show the panels of the page
+      page.show_panels();
+    </script>
+  </head>
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <th>Intern</th>
+          <th>Name</th>
+          <th>Keywords</th>
+          <th>Problem</th>
+          <th>Theme</th>
+        </tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </body>
+</html>
