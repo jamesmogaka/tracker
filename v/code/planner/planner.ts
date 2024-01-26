@@ -97,10 +97,10 @@ export class planner extends view {
   ): Promise<void> {
     //
     //Read the value of the input
-    const current: string = input.value;
+    const current: string = input.value.trim();
     //
     //Compare the input value with the initial theme
-    if (current === proj.theme) return;
+    if (current === proj.theme || current === "") return;
     //
     //Otherwise initiate the saving process
     //
