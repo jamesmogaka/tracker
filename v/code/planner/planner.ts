@@ -121,7 +121,7 @@ export class planner extends view {
     );
     //
     //Incase the saving was not succesfull throw an exception
-    if (results !== "Ok")
+    if (results !== "ok")
       throw new mutall_error(`Theme was not saved due to ${results}`);
     //
     //Alert the user on a succesull save operation
