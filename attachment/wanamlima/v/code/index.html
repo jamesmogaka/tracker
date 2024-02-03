@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Clickable Circles</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            html, body, svg {
+                width: 100%;
+                height: 100%;
+                background-color: rgb(236, 242, 243);
+            }
+
+            #Hotspot {
+                position: relative;
+                width: 100%;
+                height: auto; /* Make the height auto to maintain the aspect ratio */
+            }
+
+            /* Default coordinates for larger screens (desktops) */
+            #Hotspot area {
+                coords: 78, 15, 16;
+                /* Update the rest of the coordinates accordingly */
+            }
+
+            /* Adjust coordinates for smaller screens - maximum width */
+            @media (max-width: 600px) {
+                #Hotspot area {
+                    coords: 50, 50, 8; /* Adjust these values for smaller screens */
+                    /* Update the rest of the coordinates accordingly */
+                }
+            }
+
+            /* Adjust coordinates for smaller screens - minimum width (example: 320px) */
+            @media (min-width: 320px) and (max-width: 600px) {
+                #Hotspot area {
+                    coords: 50, 50, 6; /* Adjust these values for smaller screens */
+                    /* Update the rest of the coordinates accordingly */
+                }
+            }
+
+            /* Adjust coordinates for larger screens (example: 1200px and above) */
+            @media (min-width: 1200px) {
+                #Hotspot area {
+                    coords: 78, 15, 20; /* Adjust these values for larger screens */
+                    /* Update the rest of the coordinates accordingly */
+                }
+            }
+        </style>
+        <script type="module">
+            //
+            //Import the transfomation functionality
+            import{ get_coords } from './transformation.js'
+            window.onload = ()=> get_coords();
+           
+        </script>
+    </head>
+    <body>
+        <svg viewBox="0 0 100 100" id="svg">
+        <foreignObject x="-50" y="0" width="200" height="100" style="background: red">
+            <img
+                id="Hotspot"
+                src="entirepage.png"
+                alt="Image with hotspots"
+                usemap="#map"
+                style="width: 100%; height: auto;"
+                >
+
+            <map name="map">
+                <area shape="circle" coords="-39.21207046508789,2.2091310024261475,0.4" href="logo.html" alt="Clickable Area" title="Explore The Friends of Ngong Hill">
+                <area shape="circle" coords="-30.92782974243164,40.86892318725586,0.4" href="underconstruction.html" alt="Clickable Area" title="underconstruction">
+                <area shape="circle" coords="1.6568530797958374,23.748157501220703,0.4" href="objectives.html" alt="Clickable Area" title="objectives">
+                <area shape="circle" coords="35.714290618896484,3.8659791946411133,0.4" href="show_members.html" alt="Clickable Area" title="show_members">
+                <area shape="circle" coords="48.600887298583984,4.234167575836182,0.4" href="katiba.html" alt="Clickable Area" title="Katiba">
+                <area shape="circle" coords="61.85567092895508,3.8659791946411133,0.4" href="show_events.html" alt="Clickable Area" title="show_events">
+                <area shape="circle" coords="962,36,16" href="messages.html" alt="Clickable Area" title="messages">
+                <area shape="circle" coords="1273,33,16" href="login.html" alt="Clickable Area" title="login">
+                <area shape="circle" coords="1135,315,16" href="user_profile.html" alt="Clickable Area" title="user_profile">
+                <area shape="circle" coords="1297,165,16" href="events.html" alt="Clickable Area" title="events">
+                <area shape="circle" coords="1486,326,16" href="date.html" alt="Clickable Area" title="date">
+                <area shape="circle" coords="1486,326,16" href="underconstruction.html" alt="Clickable Area" title="Under Construction">
+                <area shape="circle" coords="1486,426,16" href="scrollbar.html" alt="Clickable Area" title="scrollbar">
+                <area shape="circle" coords="1313,461,16" href="user_text.html" alt="Clickable Area" title="user_text">
+                <area shape="circle" coords="1205,646,16" href="frozen.html" alt="Clickable Area" title="frozen Dialog Box">
+                <area shape="circle" coords="1369,660,16" href="send.html" alt="Clickable Area" title="send">
+                <area shape="circle" coords="1369,660,16" href="user_text.html" alt="Clickable Area" title="user_text">
+            </map>
+            </foreignObject>
+        </svg>   
+
+    </body>
+</html>

@@ -9,5 +9,5 @@ from
     inner join workplan on project.workplan = workplan.workplan
     inner join intern on workplan.intern = intern.intern
 where
-    workplan.`year` = '2024'
+    workplan.`year` = '2024' 
 

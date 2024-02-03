@@ -15,7 +15,7 @@ $table = new csv(
         $tname,
         //
         //The filename that holds the (milk) data    
-        'workplan2024.csv',
+        'minutes.csv',
         //
         //The following default values match the output from a database
         //query
@@ -42,13 +42,12 @@ $fn = '\mutall\capture\lookup';
 //Map data from a csv file to a the database
 $layout = [
     $table,
-    ['2024', 'workplan', 'year'],
-    [[$fn, $tname, 'intern'], "intern", "surname"],
-    [[$fn, $tname, 'name'], "project", "name"],
-    [[$fn, $tname, 'problem'], "project", "problem"],
-    [[$fn, $tname, 'plan'], "project", "plan"],
-    [[$fn, $tname, 'outcome'], "project", "outcome"],
-    [[$fn, $tname, 'comment'], "project", "comment"],
+    [[$fn, $tname, 'project'], "project", "project"],
+    [[$fn, $tname, 'presentation'], "presentation", "presentation"],
+    [[$fn, $tname, 'number'], "minute", "number"],
+    [[$fn, $tname, 'summary'], "minute", "summary"],
+    [[$fn, $tname, 'detail'], "minute", "detail"],
+    [[$fn, $tname, 'done'], "minute", "done"],
     
 ];
 //
