@@ -109,59 +109,19 @@ export class planner extends view {
   //Display dialog that will be used to add or edit a projects theme
   private edit(cell: HTMLTableCellElement, row: project): void {
     //
-    //
-  }
-  //
-  //Here we read the value of the input element and compare it to the initial theme
-  //If there was a change in the theme we initate the process of saving the new theme
-  //othewise we do nothing and retain the initial
-  private async update_theme(
-    input: HTMLTextAreaElement,
-    proj: project
-  ): Promise<void> {
-    //
-    //Read the value of the input
-    const current: string = input.value.trim();
-    //
-    //Compare the input value with the initial theme
-    if (current === proj.theme || current === "") return;
-    //
-    //Otherwise initiate the saving process
-    //
-    //Collect the layouts
-    const layouts: Array<layout> = [
-      [current, "project", "theme"], // What we want to save or edit in the dbase
-      [proj.name, "project", "name"], // Reference to the project whoes theme was changed
-      [this.year, "workplan", "year"], // Reference to the workplan where the project came from
-      [proj.surname, "intern", "surname"], // Finally who's workplan is being edited
-    ];
-    //
-    //Save the data using the most common method
-    const results: "ok" | string = await exec(
-      "questionnaire", //Name of the PHP class to use
-      ["tracker_mogaka"], //Constructor arguments
-      "load_common", //The method to run
-      [
-        layouts,
-        "/mogaka/schema/v/code/log.xml",
-        "/mogaka/schema/v/code/errors.html",
-      ] //Method arguments
-    );
-    //
-    //Incase the saving was not succesfull throw an exception
-    if (results !== "ok")
-      throw new mutall_error(`Theme was not saved due to ${results}`);
-    //
-    //Alert the user on a succesull save operation
-    alert(`${current} theme was saved succesfully`);
+    //Create an instance of the theme class
+    new theme(row, this.document.body);
   }
 }
 //
 //Dialog that will be used to enter or edit the project theme
 class theme extends dialog<string> {
   //
+  //TO save the theme that was just entered
+  public new_theme: string | undefined;
+  //
   //Get the project to displayin the form
-  constructor(public proj: project, body: HTMLBodyElement) {
+  constructor(public proj: project, body: HTMLElement) {
     //
     //Initialize the parent class
     super(body, true, "/tracker/v/code/planner/project.html");
@@ -240,8 +200,13 @@ class theme extends dialog<string> {
       ] //Method arguments
     );
     //
-    //return the result of the saving process
-    if (results === "ok") return "Ok";
-    else return new Error(results);
+    //Incase the operation was unsuccessfull return an error
+    if (results !== "ok") return new Error(results);
+    //
+    //On succesfull saving save the new theme as a class property for display
+    this.new_theme = input;
+    //
+    //return an ok
+    return "Ok";
   }
 }
