@@ -107,18 +107,24 @@ export class planner extends view {
   }
   //
   //Display dialog that will be used to add or edit a projects theme
-  private edit(cell: HTMLTableCellElement, row: project): void {
+  private async edit(cell: HTMLTableCellElement, row: project): Promise<void> {
     //
-    //Create an instance of the theme class
-    new theme(row, this.document.body);
+    //Create an instance of the dialog for inputing the theme
+    const dlg = new theme(row, this.document.body);
+    //
+    //Iinitiate the process using the administer funcitonality
+    const results: string | undefined = await dlg.administer();
+    //
+    //If no results was gotten from the dialog discontinue the process
+    if (!results) return;
+    //
+    //Otherwise display the new theme in the specified cell
+    cell.textContent = results;
   }
 }
 //
 //Dialog that will be used to enter or edit the project theme
 class theme extends dialog<string> {
-  //
-  //TO save the theme that was just entered
-  public new_theme: string | undefined;
   //
   //Get the project to displayin the form
   constructor(public proj: project, body: HTMLElement) {
@@ -202,9 +208,6 @@ class theme extends dialog<string> {
     //
     //Incase the operation was unsuccessfull return an error
     if (results !== "ok") return new Error(results);
-    //
-    //On succesfull saving save the new theme as a class property for display
-    this.new_theme = input;
     //
     //return an ok
     return "Ok";
