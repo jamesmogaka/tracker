@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Server</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="browser.css" />
+        <script type="module">
+            //
+            // Import the browser class (for server_folders)
+            import { browser } from "./browser.js";
+            //
+            //On loading this page, display he server pages startinfromthe given 
+            //folser
+            window.onload = async()=>{
+                //
+                // Create an instance of the server folders class
+                const page = new browser("/");
+                //
+                // Make the class visible outside this script
+                window.page = page;
+                //
+                //Sho the files and folres in the selected page
+                await page.show_panels();
+                
+            };
+  
+        </script>
+    </head>
+    <body id="container">
+        <div id="header">
+            <button id="submit">Submit</button>
+        </div>
+        <div id="body">
+            <h2>Select a Folder</h2>
+            <div id="root"></div>
+        </div>
+    </body>
+</html>

@@ -56,14 +56,13 @@
         <script type="module">
             //
             //Import the transfomation functionality
-            import{ get_coords } from './transformation.js'
-            window.onload = ()=> get_coords();
+            import{ get_coords, administer } from './transformation.js'
+            window.onload = ()=> administer();
            
         </script>
     </head>
     <body>
         <svg viewBox="0 0 100 100" id="svg">
-        <foreignObject x="-50" y="0" width="200" height="100" style="background: red">
             <img
                 id="Hotspot"
                 src="entirepage.png"

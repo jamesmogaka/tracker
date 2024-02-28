@@ -5,34 +5,34 @@ include '../../../schema/v/code/schema.php';
 include '../../../schema/v/code/questionnaire.php';
 //
 //Load the mappings to a database
-$q = new \mutall\questionnaire("tracker_mogaka");
+$q = new \mutall\questionnaire("tracker_24");
 
-$tname = 'workplan2024';
+$tname = 'tracker';
 
-$table = new csv(
+$sql = 'select
+            name,
+            surname,
+            initials,
+            qualification,
+            university,
+            image,
+            start_date,
+            end_date,
+            user,
+            year
+        from
+            intern';
+
+$table = new query(
         //
         //The name of the text table    
         $tname,
         //
-        //The filename that holds the (milk) data    
-        'minutes.csv',
+        //The sql statement to get the data
+        $sql,
         //
-        //The following default values match the output from a database
-        //query
-        //
-        //The header colmumn names. If empty, it means the user wishes 
-        //to use the default values
-        [],
-        //
-        //Text used as the value separator
-        ",",
-        //
-        //The row number, starting from 0, where column names are stored
-        //A negative number means that file has no header     
-        0,
-        //
-        //The row number, starting from 0, where the table's body starts.        
-        1
+        //The dbase to execute the query aganist
+        'tracker_mogaka'
 );
 
 $fn = '\mutall\capture\lookup';
@@ -42,13 +42,16 @@ $fn = '\mutall\capture\lookup';
 //Map data from a csv file to a the database
 $layout = [
     $table,
-    [[$fn, $tname, 'project'], "project", "project"],
-    [[$fn, $tname, 'presentation'], "presentation", "presentation"],
-    [[$fn, $tname, 'number'], "minute", "number"],
-    [[$fn, $tname, 'summary'], "minute", "summary"],
-    [[$fn, $tname, 'detail'], "minute", "detail"],
-    [[$fn, $tname, 'done'], "minute", "done"],
-    
+    [[$fn, $tname, 'name'], "intern", "name"],
+    [[$fn, $tname, 'surname'], "intern", "surname"],
+    [[$fn, $tname, 'initials'], "intern", "initials"],
+    [[$fn, $tname, 'qualification'], "intern", "qualification"],
+    [[$fn, $tname, 'university'], "intern", "university"],
+    [[$fn, $tname, 'image'], "intern", "image"],
+    [[$fn, $tname, 'start_date'], "intern", "start_date"],
+    [[$fn, $tname, 'end_date'], "intern", "end_date"],
+    [[$fn, $tname, 'user'], "intern", "user"],
+    [[$fn, $tname, 'year'], "intern", "year"],
 ];
 //
 //Load the data using the most common method

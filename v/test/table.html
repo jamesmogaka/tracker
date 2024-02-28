@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Collapsable table</title>
+        <style>
+            /* Add borders to the table the table header and the individual cells of the table */
+            table,
+            th,
+            td,
+            tr {
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+
+            .hidden {
+                display: none;
+            }
+        </style>
+
+        <script>
+            //
+            //Collapse and expand cells
+            function collaps_cels() {
+                //
+                //
+                alert('I was clicked');
+            }
+        </script>
+    </head>
+    <body>
+        <table>
+            <thead>
+                <tr>
+                    <th>Intern</th>
+                    <th>Activity</th>
+                    <th>15/02/2024</th>
+                    <th>19/02/2024</th>
+                    <th>20/02/2024</th>
+                    <th>21/02/2024</th>
+                    <th>22/02/2024</th>
+                    <th>23/02/2024</th>
+                    <th>26/02/2024</th>
+                    <th>27/02/2024</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Karen -->
+                <tr>
+                    <td rowspan="3">karen</td>
+                    <td>Mutall/ Assesment</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Ranics/ Querying</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Tracker/ Portfolio</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+
+                <!-- simo -->
+                <tr>
+                    <td rowspan="3" onclick="collaps_cels()">karanja</td>
+                    <td>Mlima/ Consolidation</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Chat/ Sockets</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Sheetjs/ Webpack</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+
+                <!-- muli -->
+                <tr>
+                    <td rowspan="3">muli</td>
+                    <td>Balansys/ Reciepts and Accounting</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Cyber/ CORS</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Event planner/ CRON</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>

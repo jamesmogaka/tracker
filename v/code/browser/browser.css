@@ -1,0 +1,39 @@
+/*Define the grid areas by defining the column and row grid templates*/
+.container {
+    display: grid;
+    grid-template-rows: 40% 60%; 
+    min-height: 100vh;
+    grid-template-areas:
+      "header"
+      "body";
+}
+#header {
+    grid-area: header; 
+    background-color: lightgray; 
+    justify-content: center;
+    align-items: center; 
+}
+#body {
+    grid-area: content;
+    background-color: whitesmoke; 
+    padding: 10px; 
+}
+.file_icon{
+    width: 30px;
+    height:30px;
+}
+.folder_icon {
+  width: 30px; 
+  height: 30px; 
+  margin-left: 0px; 
+}
+.children{
+    margin-left: 20px;
+}
+.summary_container{
+     display: flex;
+     alignItems:center;
+}
+.file.select{
+    background: blue;
+}

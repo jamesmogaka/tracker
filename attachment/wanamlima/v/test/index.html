@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Clickable Circles</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            html,
+            body,
+            svg {
+                width: 100%;
+                height: 100%;
+                background-color: rgb(236, 242, 243);
+            }
+
+            #Hotspot {
+                position: relative;
+                width: 100%;
+                height: auto; /* Make the height auto to maintain the aspect ratio */
+            }
+
+            /* Default coordinates for larger screens (desktops) */
+            #Hotspot area {
+                coords: 78, 15, 16;
+                /* Update the rest of the coordinates accordingly */
+            }
+
+            /* Adjust coordinates for smaller screens - maximum width */
+            @media (max-width: 600px) {
+                #Hotspot area {
+                    coords: 50, 50, 8; /* Adjust these values for smaller screens */
+                    /* Update the rest of the coordinates accordingly */
+                }
+            }
+
+            /* Adjust coordinates for smaller screens - minimum width (example: 320px) */
+            @media (min-width: 320px) and (max-width: 600px) {
+                #Hotspot area {
+                    coords: 50, 50, 6; /* Adjust these values for smaller screens */
+                    /* Update the rest of the coordinates accordingly */
+                }
+            }
+
+            /* Adjust coordinates for larger screens (example: 1200px and above) */
+            @media (min-width: 1200px) {
+                #Hotspot area {
+                    coords: 78, 15, 20; /* Adjust these values for larger screens */
+                    /* Update the rest of the coordinates accordingly */
+                }
+            }
+        </style>
+        <script type="module">
+            //
+            //Import the transfomation functionality
+            import { get_coords } from './transformation.js';
+            window.onload = () => get_coords();
+        </script>
+    </head>
+    <body>
+        <svg viewBox="0 0 100 100" id="svg">
+            <circle cx="75" cy="25" r="2" fill="black" />
+            <foreignObject x="0" y="0" width="100" height="100">
+                <div
+                    style="
+                        background-color: blue;
+                        position: absolute;
+                        top: 176px;
+                        left: 830px;
+                        border-radius: 50%;
+                        width: 40px;
+                        height: 40px;
+                    "
+                ></div>
+            </foreignObject>
+        </svg>
+    </body>
+</html>

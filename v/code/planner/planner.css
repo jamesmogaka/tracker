@@ -1,3 +1,18 @@
+/* Create the page layout using a grid */
+body {
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-rows: 3% 1fr;
+  gap: 2px;
+}
+
+/* Add a color to the header to make it visible */
+header {
+  background-color: skyblue;
+}
+
+/* Add borders to the table the table header and the individual cells of the table */
 table,
 th,
 td,
@@ -6,32 +21,31 @@ tr {
   border-collapse: collapse;
 }
 
+/* For each cell in the table add a padding  */
 td {
   box-sizing: border-box;
   padding: 5px;
 }
 
+/* Ensure that each row of the table covers the entire width of the page */
 tr {
   width: 100%;
 }
 
-textarea {
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-
+/* Regulate the width of all the columns of the table */
 td:nth-child(1),
 td:nth-child(2),
 td:nth-child(3) {
   width: 4%;
 }
 
+/* Regulate the width of the problem column */
 td:nth-child(4) {
   width: 40%;
   max-width: 400px;
 }
 
+/* Add an elipsis for problem text that overflows */
 .problem {
   width: 100%;
   white-space: nowrap;
@@ -39,15 +53,20 @@ td:nth-child(4) {
   text-overflow: ellipsis;
 }
 
-@media only screen and (max-width: 600px) {
-  td:nth-child(1),
-  td:nth-child(2),
-  td:nth-child(3) {
-    width: 2%;
-  }
+/* Make the table responsive  */
 
+@media only screen and (max-width: 820px) {
+  /* Reduce the size of the problem column */
   td:nth-child(4) {
     width: 20%;
-    max-width: 100px;
+    max-width: 250px;
+  }
+
+  @media only screen and (max-width: 700px) {
+    td:nth-child(1),
+    td:nth-child(2),
+    td:nth-child(3) {
+      width: 3%;
+    }
   }
 }

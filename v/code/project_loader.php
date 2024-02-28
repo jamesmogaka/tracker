@@ -5,34 +5,35 @@ include '../../../schema/v/code/schema.php';
 include '../../../schema/v/code/questionnaire.php';
 //
 //Load the mappings to a database
-$q = new \mutall\questionnaire("tracker_mogaka");
+$q = new \mutall\questionnaire("tracker_24");
 
-$tname = 'workplan2024';
+$tname = 'tracker';
 
-$table = new csv(
+$sql = 'select
+            project.name,
+            project.problem,
+            project.outcome,
+            project.comment,
+            project.activities,
+            project.termination,
+            project.theme,
+            workplan.year,
+            intern.surname   
+        from
+            project
+            inner join workplan on project.workplan = workplan.workplan
+            inner join intern on workplan.intern = intern.intern';
+
+$table = new query(
         //
         //The name of the text table    
         $tname,
         //
-        //The filename that holds the (milk) data    
-        'minutes.csv',
+        //The sql statement to get the data
+        $sql,
         //
-        //The following default values match the output from a database
-        //query
-        //
-        //The header colmumn names. If empty, it means the user wishes 
-        //to use the default values
-        [],
-        //
-        //Text used as the value separator
-        ",",
-        //
-        //The row number, starting from 0, where column names are stored
-        //A negative number means that file has no header     
-        0,
-        //
-        //The row number, starting from 0, where the table's body starts.        
-        1
+        //The dbase to execute the query aganist
+        'tracker_mogaka'
 );
 
 $fn = '\mutall\capture\lookup';
@@ -42,17 +43,19 @@ $fn = '\mutall\capture\lookup';
 //Map data from a csv file to a the database
 $layout = [
     $table,
-    [[$fn, $tname, 'project'], "project", "project"],
-    [[$fn, $tname, 'presentation'], "presentation", "presentation"],
-    [[$fn, $tname, 'number'], "minute", "number"],
-    [[$fn, $tname, 'summary'], "minute", "summary"],
-    [[$fn, $tname, 'detail'], "minute", "detail"],
-    [[$fn, $tname, 'done'], "minute", "done"],
-    
+    [[$fn, $tname, 'name'], "project", "name"],
+    [[$fn, $tname, 'problem'], "project", "problem"],
+    [[$fn, $tname, 'outcome'], "project", "outcome"],
+    [[$fn, $tname, 'comment'], "project", "comment"],
+    [[$fn, $tname, 'activities'], "project", "activities"],
+    [[$fn, $tname, 'termination'], "project", "termination"],
+    [[$fn, $tname, 'theme'], "project", "theme"],
+    [[$fn, $tname, 'year'], "workplan", "year"],
+    [[$fn, $tname, 'surname'], "intern", "surname"],
 ];
 //
 //Load the data using the most common method
-$result = $q -> load_common($layout);
+$result = $q -> load_common($layout,'/tracker/v/code/log.xml', '/tracker/v/code/error.html');
 //
 //print the q
 echo $result;

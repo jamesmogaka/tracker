@@ -5,37 +5,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
+      form {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
       label {
         display: block;
+        margin-bottom: 15px;
       }
+
+      input,
+      textarea {
+        width: 100%;
+        padding: 8px;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+      }
+
+      textarea {
+        display: block;
+        margin: 0 auto;
+      }
+
+      button {
+        padding: 10px 15px;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+      }
+
+      button#cancel {
+        margin-left: 10px;
+      }
+
+      /* Add more styles as needed */
     </style>
   </head>
   <body>
     <form>
       <label id="intern">
         Intern
-        <input type="text" />
+        <input type="text" disabled />
       </label>
 
       <label id="project">
         Project
-        <input type="text" />
+        <input type="text" disabled />
       </label>
 
       <label id="keywords">
         Keywords
-        <input type="text" />
+        <input type="text" disabled />
       </label>
 
       <label id="problem">
         Problem
-        <textarea cols="30" rows="10"></textarea>
+        <textarea cols="30" rows="10" disabled></textarea>
       </label>
 
       <label id="theme">
         Theme
         <input type="text" />
       </label>
+
+      <button id="submit">Submit</button>
+      <button id="cancel">Cancel</button>
     </form>
   </body>
 </html>
